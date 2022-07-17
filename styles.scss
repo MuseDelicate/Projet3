@@ -47,18 +47,21 @@ form {
     height: 300px;
     background-color: $lightgrey;
     display: grid;
-    /*grid-template-columns: repeat(10, 10%);
-            grid-template-rows: repeat(12, 25px);*/
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(12, 25px);
     div {
         background-color: $mediumgrey;
+        grid-row: 1/3;
         i {
             background-color: #9356DC;
             padding: 10px;
+            grid-column: 3/5;
         }
         input {
             background-color: #FF79DA;
             border: none;
             color: black;
+            grid-column: 5/8;
         }
     }
     /*h1 {
