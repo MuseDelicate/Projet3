@@ -1,0 +1,65 @@
+@import 'accueil.scss';
+header {
+    @include header-ohmyfood;
+    img {
+        width: 250px;
+    }
+}
+
+#photo {
+    width: 100‰;
+    height: 300px;
+    overflow: hidden;
+    img {
+        object-fit: cover;
+    }
+}
+
+main {
+    border-radius: 20px 20px 0 0;
+    background-color: $lightgrey;
+    #titres {
+        display: flex;
+        flex-direction: row;
+        h1 {
+            font-family: $title-font;
+            margin-top: 0;
+            width: 100px;
+            display: block;
+        }
+    }
+    span {
+        border-bottom: 2px solid $tertiaire;
+    }
+}
+
+.courses {
+    display: flex;
+    flex-direction: column;
+    a {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 1fr 1fr;
+        @include cards(100px);
+        h3,
+        p {
+            margin: 0;
+        }
+        h3 {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+        p {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+        /*::after {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }*/
+    }
+}
+
+button {
+    @include pink-button;
+}
