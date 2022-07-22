@@ -1,18 +1,7 @@
+@import url("normalize.css");
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("normalize.css");
-/*@font-face {
-    font-family: 'Roboto';
-    src: url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-}
-
-@font-face {
-    font-family: 'Shrikhand';
-    src: url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-}*/
-/*$mobile: "screen and (max-width: 540px)";
-$tablette: "screen and (min-width: 541px) and (max-width:750px)";*/
 body {
   width: 100%;
   font-family: "Roboto", "sans serif";
@@ -20,8 +9,8 @@ body {
 }
 
 header {
-  -webkit-box-shadow: 0 5px 5px grey;
-          box-shadow: 0 5px 5px grey;
+  -webkit-box-shadow: 3px 3px 1px #eaeaea;
+          box-shadow: 3px 3px 1px #eaeaea;
   padding: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,68 +25,68 @@ header img {
 }
 
 form {
-  height: 300px;
   background-color: #f2f2f2;
+  padding-bottom: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 40px;
-  /*display: grid;
-    grid-template-columns: repeat(10, 10%);
-    grid-template-rows: repeat(12, 25px);*/
+  padding: 20px;
+}
+
+@media screen and (max-width: 540px) {
+  form {
+    padding: 0 0 20px 0;
+  }
 }
 
 form div {
   background-color: #eaeaea;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  /*grid-row: 1/3;
-        grid-column: 1/11;*/
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 20px;
 }
 
-form div i {
-  padding: 10px;
+@media screen and (max-width: 540px) {
+  form div {
+    max-width: none;
+    width: 100%;
+    border-radius: none;
+  }
 }
 
 form div input {
   border: none;
   color: black;
   background-color: #eaeaea;
-  padding-left: 20px;
+}
+
+form div i {
+  padding: 10px;
 }
 
 form h1 {
-  /*grid-column: 4/7;
-                grid-row: 2;*/
-  width: 70%;
-  margin: auto;
   padding-top: 20px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   font-size: 26px;
   font-weight: 900;
 }
 
 form h3 {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 85%;
-  margin: auto;
   font-weight: 300;
-  /*grid-column: 2/8;
-                grid-row: 3;*/
 }
 
 form button {
@@ -109,13 +98,17 @@ form button {
   background-color: #FF79DA;
   color: #ffffff;
   font-size: 16px;
-  width: 60%;
+  width: 50%;
   margin: auto;
   border: none;
-  -webkit-box-shadow: 3px 3px 1px mediumgrey;
-          box-shadow: 3px 3px 1px mediumgrey;
-  /*grid-column: 3/7;
-                grid-row: 4;*/
+  -webkit-box-shadow: 3px 3px 1px #eaeaea;
+          box-shadow: 3px 3px 1px #eaeaea;
+}
+
+@media screen and (max-width: 540px) {
+  form button {
+    width: 60%;
+  }
 }
 
 main {
@@ -123,26 +116,46 @@ main {
 }
 
 #functionning {
-  padding-top: 20px;
-  height: 400px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  padding: 20px;
+  height: 150px;
+  margin-bottom: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
+
+@media screen and (max-width: 540px) {
+  #functionning {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 #functionning h2 {
-  padding-left: 15px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
 }
 
 #functionning a {
   background-color: #f2f2f2;
   width: 80%;
-  margin-left: auto;
-  margin-right: auto;
   padding: 5px 15px;
   border-radius: 20px;
   text-decoration: none;
@@ -155,8 +168,8 @@ main {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   font-weight: bold;
-  -webkit-box-shadow: 2px 2px 10px #eaeaea;
-          box-shadow: 2px 2px 10px #eaeaea;
+  -webkit-box-shadow: 3px 3px 1px #eaeaea;
+          box-shadow: 3px 3px 1px #eaeaea;
 }
 
 #functionning a span {
@@ -185,10 +198,33 @@ main {
   padding-bottom: 30px;
   background-color: #f2f2f2;
   width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 50px 1fr 1fr;
+      grid-template-rows: 50px 1fr 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #restaurants h2 {
   padding-left: 20px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1/3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
 }
 
 #restaurants .restaurants {
@@ -226,7 +262,7 @@ main {
 #restaurants .restaurants .new {
   padding: 6px 8px;
   background-color: #99E2D0;
-  color: #008766;
+  color: #32b091;
   font-weight: bold;
   position: absolute;
   right: 30px;
@@ -268,7 +304,6 @@ main {
   padding-right: 10px;
   padding-top: 10px;
   font-size: 20px;
-  /*font-weight: 100;*/
 }
 
 footer {
