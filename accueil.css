@@ -5,10 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("keyframe.css");
 /*@mixin mobile-only--cards-width ($height) {
-        grid-template-columns: 1fr;
-        height: $height;
-        align-items: center;
-    }*/
+grid-template-columns: 1fr;
+height: $height;
+align-items: center;
+}*/
 body {
   width: 100%;
   font-family: "Roboto", "sans serif";
