@@ -1,307 +1,323 @@
-                @import url("normalize.css");
-                @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
-                @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-                @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-                $primaire: #9356DC;
-                $secondaire:#FF79DA;
-                $tertiaire:#99E2D0;
-                $darkgreen:#008766;
-                $lightgrey: #f2f2f2;
-                $mediumgrey: #eaeaea;
-                $darkgrey: #353535;
-                $white: #ffffff;
-                $title-font: 'Shrikhand',
-                'sans-serif';
-                $common-font: 'Roboto',
-                'sans serif';
-                $tablette: "screen and (min-width: 541px) and (max-width:750px)";
-                $desktop: "screen and (min-width:751px)";
-                @mixin cards--border-radius {
-                    border-radius: 20px;
-                }
-                
-                @mixin cards-shadow ($shadow-size-left:3px,
-                $shadow-size-bottom:3px,
-                $shadow-opacity: 1px,
-                $color: $mediumgrey) {
-                    box-shadow: 3px 3px 1px $color;
-                }
-                
-                @mixin cards ($height) {
-                    width: 90%;
-                    margin: 5%;
-                    height: $height;
-                    text-decoration: none;
-                    color: black;
-                    overflow: hidden;
-                    @include cards--border-radius;
-                    @include cards-shadow;
-                }
-                
-                @mixin logo-ohmyfood {
-                    width: 40%;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-                
-                @mixin header-ohmyfood {
-                    @include cards-shadow (0 5px 5px grey);
-                    padding: 15px;
-                    //display: flex;
-                    //justify-content: center;
-                }
-                
-                // @mixin margin
-                // @mixin padding
-                @mixin footer-ohmyfood {
-                    background-color: $darkgrey;
-                    color: $white;
-                    padding: 25px;
-                    h2 {
-                        font-family: $title-font;
-                        margin: 0;
-                        padding-bottom: 15px;
+                    @import url("normalize.css");
+                    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+                    @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+                    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+                    @import url('keyframe.css');
+                    $primaire: #9356DC;
+                    $secondaire:#FF79DA;
+                    $tertiaire:#99E2D0;
+                    $lightgrey: #f2f2f2;
+                    $mediumgrey: #eaeaea;
+                    $darkgrey: #353535;
+                    $white: #ffffff;
+                    $title-font: 'Shrikhand',
+                    'sans-serif';
+                    $common-font: 'Roboto',
+                    'sans serif';
+                    $tablette: "screen and (min-width: 541px) and (max-width:750px)";
+                    $desktop: "screen and (min-width:751px)";
+                    @mixin cards--border-radius {
+                        border-radius: 20px;
                     }
-                    ul {
-                        list-style-type: none;
-                        padding: 0;
-                        li {
-                            padding: 5px;
-                            a {
-                                color: white;
-                                text-decoration: none;
+                    
+                    @mixin cards-shadow ($shadow-size-left:3px,
+                    $shadow-size-bottom:3px,
+                    $shadow-opacity: 1px,
+                    $color: $mediumgrey) {
+                        box-shadow: 3px 3px 1px $color;
+                    }
+                    
+                    @mixin cards ($height) {
+                        width: 90%;
+                        margin: 5%;
+                        height: $height;
+                        text-decoration: none;
+                        color: black;
+                        overflow: hidden;
+                        @include cards--border-radius;
+                        @include cards-shadow;
+                    }
+                    
+                    @mixin logo-ohmyfood {
+                        width: 40%;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    
+                    @mixin header-ohmyfood {
+                        @include cards-shadow (0 5px 5px grey);
+                        padding: 15px;
+                        display: flex;
+                        flex: 50%;
+                        justify-content: start;
+                    }
+                    
+                    // @mixin margin
+                    // @mixin padding
+                    @mixin footer-ohmyfood {
+                        background-color: $darkgrey;
+                        color: $white;
+                        padding: 25px;
+                        h2 {
+                            font-family: $title-font;
+                            margin: 0;
+                            padding-bottom: 15px;
+                        }
+                        ul {
+                            list-style-type: none;
+                            padding: 0;
+                            li {
+                                padding: 5px;
+                                a {
+                                    color: white;
+                                    text-decoration: none;
+                                }
                             }
                         }
                     }
-                }
-                
-                @mixin mobile-only {
-                    @media screen and (max-width: 540px) {
-                        @content;
+                    
+                    @mixin mobile-only {
+                        @media screen and (max-width: 540px) {
+                            @content;
+                        }
                     }
-                }
-                /*@mixin mobile-only--cards-width ($height) {
+                    /*@mixin mobile-only--cards-width ($height) {
         grid-template-columns: 1fr;
         height: $height;
         align-items: center;
     }*/
-                
-                @mixin tablette-only {
-                    @media screen and (min-width: 540px) and (max-width: 990px) {
-                        @content;
+                    
+                    @mixin tablette-only {
+                        @media screen and (min-width: 540px) and (max-width: 990px) {
+                            @content;
+                        }
                     }
-                }
-                
-                @mixin pink-button {
-                    justify-content: center;
-                    padding: 15px;
-                    @include cards--border-radius;
-                    background-color: $secondaire;
-                    color: $white;
-                    font-size: 16px;
-                    width: 50%;
-                    margin: auto;
-                    border: none;
-                    @include cards-shadow(mediumgrey);
-                    @include mobile-only {
-                        width: 60%;
-                    }
-                }
-                
-                body {
-                    width: 100%;
-                    font-family: $common-font;
-                    margin: 0;
-                }
-                
-                header {
-                    @include header-ohmyfood;
-                    img {
-                        @include logo-ohmyfood();
-                    }
-                }
-                
-                form {
-                    background-color: $lightgrey;
-                    color: $darkgrey;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    padding-bottom: 50px;
-                    padding-top: 20px;
-                    @include mobile-only {
-                        padding: 0 0 20px 0;
-                    }
-                    div {
-                        background-color: $mediumgrey;
-                        border-radius: 20px;
-                        padding: 5px 30px;
-                        font-size: 20px;
+                    
+                    @mixin pink-button {
+                        justify-content: center;
+                        padding: 15px;
+                        @include cards--border-radius;
+                        //background-color: $secondaire;
+                        background: linear-gradient($secondaire, $primaire);
+                        color: $white;
+                        font-size: 16px;
+                        width: 50%;
+                        margin: auto;
+                        border: none;
+                        @include cards-shadow($darkgrey);
                         @include mobile-only {
-                            width: 100%;
-                            border-radius: none;
-                            padding: 0 30px;
+                            width: 60%;
                         }
-                        input {
-                            border: none;
-                            color: black;
-                            background-color: $mediumgrey;
-                        }
-                        i {
-                            padding: 10px;
+                        &:hover {
+                            opacity: 85%;
+                            box-shadow: 4px 4px 3px $darkgrey;
                         }
                     }
-                    h1 {
+                    
+                    body {
+                        width: 100%;
+                        font-family: $common-font;
+                        margin: 0;
+                    }
+                    
+                    header {
+                        @include header-ohmyfood;
+                        img {
+                            @include logo-ohmyfood();
+                        }
+                    }
+                    
+                    form {
+                        background-color: $lightgrey;
+                        color: $darkgrey;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        padding-bottom: 50px;
                         padding-top: 20px;
-                        font-size: 26px;
-                        font-weight: 900;
-                    }
-                    h3 {
-                        font-weight: 300;
-                    }
-                    button {
-                        @include pink-button;
-                    }
-                }
-                
-                main {
-                    width: 100%;
-                }
-                
-                #functionning {
-                    padding: 30px;
-                    height: auto;
-                    margin-bottom: 30px;
-                    div {
-                        display: grid;
-                        grid-template-columns: repeat(3, 1fr);
-                        justify-items: center;
                         @include mobile-only {
-                            grid-template-columns: 1fr;
+                            padding: 0 0 20px 0;
                         }
-                        // ajouter le mixin card en modifiant seulement la couleur et la hauteur
-                        a {
-                            background-color: $lightgrey;
-                            width: 80%;
-                            padding: 5px 15px;
-                            @include cards--border-radius;
-                            text-decoration: none;
-                            color: black;
-                            margin-top: 15px;
-                            position: relative;
-                            display: flex;
-                            justify-content: space-around;
-                            font-weight: bold;
-                            @include cards-shadow($mediumgrey);
-                            span {
-                                padding: 5px 10px;
-                                @include cards--border-radius;
-                                background-color: $primaire;
-                                position: absolute;
-                                left: -10px;
-                                top: 18px;
-                                color: $white;
+                        div {
+                            background-color: $mediumgrey;
+                            border-radius: 20px;
+                            padding: 5px 30px;
+                            font-size: 20px;
+                            @include mobile-only {
+                                width: 100%;
+                                border-radius: none;
+                                padding: 0 30px;
+                            }
+                            input {
+                                border: none;
+                                color: black;
+                                background-color: $mediumgrey;
                             }
                             i {
-                                margin-top: 12px;
-                                font-size: 20px;
-                                padding: 5px;
-                                color: $darkgrey;
-                            }
-                            p {
-                                display: inline-block;
+                                padding: 10px;
                             }
                         }
-                    }
-                }
-                
-                #restaurants {
-                    padding-top: 30px;
-                    padding-bottom: 30px;
-                    background-color: $lightgrey;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    grid-template-rows: 50px 1fr 1fr;
-                    @include mobile-only {
-                        grid-template-columns: 1fr;
-                        grid-template-rows: 1fr;
-                    }
-                    h2 {
-                        padding-left: 20px;
-                        grid-column: 1/3;
-                        grid-row: 1/2;
-                        @include mobile-only {
-                            grid-column: 1/2;
+                        h1 {
+                            padding-top: 20px;
+                            font-size: 26px;
+                            font-weight: 900;
+                        }
+                        h3 {
+                            font-weight: 300;
+                        }
+                        button {
+                            @include pink-button;
                         }
                     }
-                    .restaurants {
-                        @include cards(250px);
-                        display: grid;
-                        grid-template-columns: repeat(10, 10%);
-                        grid-template-rows: repeat(8, 12.5%);
-                        align-items: stretch;
-                        position: static;
-                        .images {
-                            width: 100%;
-                            grid-column: 1/11;
-                            grid-row: 1/7;
-                            position: relative;
-                            overflow: hidden;
-                            img {
-                                width: 100%;
-                                object-fit: cover;
+                    
+                    main {
+                        width: 100%;
+                    }
+                    
+                    #functionning {
+                        padding: 30px;
+                        height: auto;
+                        margin-bottom: 30px;
+                        div {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            justify-items: center;
+                            @include mobile-only {
+                                grid-template-columns: 1fr;
                             }
-                            .new {
-                                padding: 6px 8px;
-                                background-color: $tertiaire;
-                                color: darken($tertiaire, 30%);
+                            // ajouter le mixin card en modifiant seulement la couleur et la hauteur
+                            a {
+                                background-color: $lightgrey;
+                                width: 80%;
+                                padding: 5px 15px;
+                                @include cards--border-radius;
+                                text-decoration: none;
+                                color: black;
+                                margin-top: 15px;
+                                position: relative;
+                                display: flex;
+                                justify-content: space-around;
                                 font-weight: bold;
-                                position: absolute;
-                                top: 0px;
-                                right: 20px;
-                            }
-                        }
-                        .titles {
-                            background-color: $white;
-                            color: $darkgrey;
-                            grid-row: 7/10;
-                            grid-column: 1/11;
-                            display: flex;
-                            padding: 10px;
-                            justify-content: space-between;
-                            div {
-                                padding: 0;
-                                flex-direction: column;
-                                h3,
+                                @include cards-shadow($mediumgrey);
+                                span {
+                                    padding: 5px 10px;
+                                    @include cards--border-radius;
+                                    background-color: $primaire;
+                                    position: absolute;
+                                    left: -10px;
+                                    top: 18px;
+                                    color: $white;
+                                }
+                                i {
+                                    margin-top: 12px;
+                                    font-size: 20px;
+                                    padding: 5px;
+                                    color: $darkgrey;
+                                }
                                 p {
-                                    margin: 0;
+                                    display: inline-block;
                                 }
                             }
-                            i {
-                                color: black;
-                                padding-right: 10px;
-                                padding-top: 10px;
-                                font-size: 20px;
-                                /*opacity: 0.2;
+                        }
+                    }
+                    
+                    #restaurants {
+                        padding-top: 30px;
+                        padding-bottom: 30px;
+                        background-color: $lightgrey;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: 50px 1fr 1fr;
+                        @include mobile-only {
+                            grid-template-columns: 1fr;
+                            grid-template-rows: 1fr;
+                        }
+                        h2 {
+                            padding-left: 20px;
+                            grid-column: 1/3;
+                            grid-row: 1/2;
+                            @include mobile-only {
+                                grid-column: 1/2;
+                            }
+                        }
+                        .restaurants {
+                            @include cards(250px);
+                            display: grid;
+                            grid-template-columns: repeat(10, 10%);
+                            grid-template-rows: repeat(8, 12.5%);
+                            align-items: stretch;
+                            position: static;
+                            .images {
+                                width: 100%;
+                                grid-column: 1/11;
+                                grid-row: 1/7;
+                                position: relative;
+                                overflow: hidden;
+                                img {
+                                    width: 100%;
+                                    object-fit: cover;
+                                }
+                                .new {
+                                    padding: 6px 8px;
+                                    background-color: $tertiaire;
+                                    color: darken($tertiaire, 30%);
+                                    font-weight: bold;
+                                    position: absolute;
+                                    top: 0px;
+                                    right: 20px;
+                                }
+                            }
+                            .titles {
+                                background-color: $white;
+                                color: $darkgrey;
+                                grid-row: 7/10;
+                                grid-column: 1/11;
+                                display: flex;
+                                padding: 10px;
+                                justify-content: space-between;
+                                div {
+                                    padding: 0;
+                                    flex-direction: column;
+                                    h3,
+                                    p {
+                                        margin: 0;
+                                    }
+                                }
+                                i {
+                                    color: black;
+                                    padding-right: 10px;
+                                    padding-top: 10px;
+                                    font-size: 20px;
+                                    opacity: 1;
+                                    &:hover {
+                                        color: $primaire;
+                                        animation-name: fade-in2;
+                                        animation-duration: 2s;
+                                        animation-delay: 1s;
+                                        //animation-timing-function: infinite;
+                                        font-weight: 900;
+                                    }
+                                    /*opacity: 0.2;
                         transition-property: opacity;
                         transition-duration: 2s;
                         transition-delay: 0.5s;
                         transition-timing-function: ease-in-out;
                         transition: opacity 2s 0.5s ease-in-out;
                         opacity: 1;*/
-                                /*animation-name: fade-in;
+                                    /*animation-name: fade-in;
                         animation-duration: 2s;
-                        animation-delay: 0.5s;*/
+                        animation-delay: 0.5s;
+                        */
+                                }
                             }
                         }
                     }
-                }
-                
-                footer {
-                    @include footer-ohmyfood;
-                }
-                /* habituellement on créé un fichier dédié aux animations qu'on importe dans le code
+                    
+                    footer {
+                        @include footer-ohmyfood;
+                    }
+                    /* habituellement on créé un fichier dédié aux animations qu'on importe dans le code
         keyframe fade-in {
             0% {
                 opacity: 0.2;
@@ -312,4 +328,4 @@
             20% {
 
             }
-        }*/
+        } */
