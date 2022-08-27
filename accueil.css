@@ -3,12 +3,12 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("keyframe.css");
 /*@mixin mobile-only--cards-width ($height) {
 grid-template-columns: 1fr;
 height: $height;
 align-items: center;
 }*/
+@import url("animation.css");
 body {
   width: 100%;
   font-family: "Roboto", "sans serif";
@@ -95,33 +95,47 @@ form h3 {
   font-weight: 300;
 }
 
-form button {
+form .btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   padding: 15px;
-  border-radius: 20px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
-  background: linear-gradient(#FF79DA, #9356DC);
-  color: #ffffff;
+  border-radius: 40px;
+  background-color: #FF79DA;
+  color: #FFFFFF;
   font-size: 16px;
   width: 50%;
   margin: auto;
   border: none;
-  -webkit-box-shadow: 3px 3px 1px #eaeaea;
-          box-shadow: 3px 3px 1px #eaeaea;
+  -webkit-box-shadow: 3px 3px 1px #f0f0f0;
+          box-shadow: 3px 3px 1px #f0f0f0;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 540px) {
-  form button {
-    width: 60%;
-  }
+form .btn:hover {
+  border-radius: 30px;
 }
 
-form button:hover {
-  opacity: 85%;
-  -webkit-box-shadow: 4px 4px 3px #353535;
-          box-shadow: 4px 4px 3px #353535;
+form .btn:hover::after {
+  opacity: 1;
+}
+
+form .btn::after {
+  border-radius: 40px;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 250ms 50ms ease-in;
+  transition: opacity 250ms 50ms ease-in;
 }
 
 main {
@@ -135,25 +149,32 @@ main {
 }
 
 #functionning div {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media screen and (max-width: 540px) {
   #functionning div {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
 #functionning div a {
   background-color: #f2f2f2;
-  width: 80%;
+  width: 25%;
   padding: 5px 15px;
-  border-radius: 20px;
+  border-radius: 25px;
   text-decoration: none;
   color: black;
   margin-top: 15px;
@@ -166,11 +187,31 @@ main {
   font-weight: bold;
   -webkit-box-shadow: 3px 3px 1px #eaeaea;
           box-shadow: 3px 3px 1px #eaeaea;
+  z-index: 1;
+}
+
+#functionning div a:hover::after {
+  opacity: 0.2;
+}
+
+#functionning div a::after {
+  border-radius: 25px;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #FF79DA;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
 }
 
 #functionning div a span {
   padding: 5px 10px;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: #9356DC;
   position: absolute;
   left: -10px;
@@ -235,7 +276,7 @@ main {
   text-decoration: none;
   color: black;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 25px;
   -webkit-box-shadow: 3px 3px 1px #eaeaea;
           box-shadow: 3px 3px 1px #eaeaea;
   display: -ms-grid;
@@ -330,12 +371,13 @@ main {
 
 #restaurants .restaurants .titles i:hover {
   color: #9356DC;
-  -webkit-animation-name: fade-in2;
-          animation-name: fade-in2;
+  font-weight: 900;
+  -webkit-animation-name: fade-in1;
+          animation-name: fade-in1;
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
   font-weight: 900;
 }
 

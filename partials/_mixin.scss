@@ -1,5 +1,5 @@
 @mixin cards--border-radius {
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 @mixin cards-shadow ($shadow-size-left:3px, $shadow-size-bottom:3px, $shadow-opacity: 1px, $color: $mediumgrey) {
@@ -23,25 +23,37 @@
     margin-right: auto;
 }
 
-// @mixin margin
-// @mixin padding
 @mixin pink-button {
     justify-content: center;
     padding: 15px;
-    @include cards--border-radius;
-    //background-color: $secondaire;
-    background: linear-gradient($secondaire, $primaire);
-    color: $white;
+    border-radius: 40px;
+    background-color: $secondaire;
+    color: #FFFFFF;
     font-size: 16px;
     width: 50%;
     margin: auto;
     border: none;
-    @include cards-shadow($darkgrey);
-    @include mobile-only {
-        width: 60%;
-    }
+    box-shadow: 3px 3px 1px #f0f0f0;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
     &:hover {
-        opacity: 85%;
-        box-shadow: 4px 4px 3px $darkgrey;
+        border-radius: 30px;
+        &::after {
+            opacity: 1;
+        }
+    }
+    &::after {
+        border-radius: 40px;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient($secondaire, $primaire);
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms 50ms ease-in;
     }
 }

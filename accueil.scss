@@ -1,216 +1,237 @@
-                    @import url("normalize.css");
-                    @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
-                    @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-                    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-                    @import url('keyframe.css');
-                    @import 'partials/variables';
-                    @import 'partials/mixin';
-                    @import 'partials/header-footer';
-                    @import 'partials/media-querys';
-                    body {
-                        width: 100%;
-                        font-family: $common-font;
-                        margin: 0;
+                @import url("normalize.css");
+                @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+                @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+                //@import url('keyframe.css');
+                @import 'partials/variables';
+                @import 'partials/mixin';
+                @import 'partials/header-footer';
+                @import 'partials/media-querys';
+                @import url('animation.css');
+                body {
+                    width: 100%;
+                    font-family: $common-font;
+                    margin: 0;
+                }
+                
+                header {
+                    @include header-ohmyfood;
+                    img {
+                        @include logo-ohmyfood();
                     }
-                    
-                    header {
-                        @include header-ohmyfood;
-                        img {
-                            @include logo-ohmyfood();
-                        }
+                }
+                
+                form {
+                    background-color: $lightgrey;
+                    color: $darkgrey;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    padding-bottom: 50px;
+                    padding-top: 20px;
+                    @include mobile-only {
+                        padding: 0 0 20px 0;
                     }
-                    
-                    form {
-                        background-color: $lightgrey;
-                        color: $darkgrey;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-                        padding-bottom: 50px;
-                        padding-top: 20px;
+                    div {
+                        background-color: $mediumgrey;
+                        border-radius: 20px;
+                        padding: 5px 30px;
+                        font-size: 20px;
                         @include mobile-only {
-                            padding: 0 0 20px 0;
+                            width: 100%;
+                            border-radius: none;
+                            padding: 0 30px;
                         }
-                        div {
+                        input {
+                            border: none;
+                            color: black;
                             background-color: $mediumgrey;
-                            border-radius: 20px;
-                            padding: 5px 30px;
-                            font-size: 20px;
-                            @include mobile-only {
-                                width: 100%;
-                                border-radius: none;
-                                padding: 0 30px;
+                        }
+                        i {
+                            padding: 10px;
+                        }
+                    }
+                    h1 {
+                        padding-top: 20px;
+                        font-size: 26px;
+                        font-weight: 900;
+                    }
+                    h3 {
+                        font-weight: 300;
+                    }
+                    .btn {
+                        @include pink-button;
+                    }
+                }
+                
+                main {
+                    width: 100%;
+                }
+                
+                #functionning {
+                    padding: 30px;
+                    height: auto;
+                    margin-bottom: 30px;
+                    div {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-evenly;
+                        align-items: center;
+                        @include mobile-only {
+                            flex-direction: column;
+                        }
+                        a {
+                            background-color: $lightgrey;
+                            width: 25%;
+                            padding: 5px 15px;
+                            @include cards--border-radius;
+                            text-decoration: none;
+                            color: black;
+                            margin-top: 15px;
+                            position: relative;
+                            display: flex;
+                            justify-content: space-around;
+                            font-weight: bold;
+                            @include cards-shadow($mediumgrey);
+                            z-index: 1;
+                            &:hover {
+                                &::after {
+                                    opacity: 0.2;
+                                }
                             }
-                            input {
-                                border: none;
-                                color: black;
-                                background-color: $mediumgrey;
+                            &::after {
+                                border-radius: 25px;
+                                content: "";
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                left: 0;
+                                background: $secondaire;
+                                opacity: 0;
+                                z-index: -1;
+                                transition: opacity 250ms ease-in;
+                            }
+                            span {
+                                padding: 5px 10px;
+                                @include cards--border-radius;
+                                background-color: $primaire;
+                                position: absolute;
+                                left: -10px;
+                                top: 18px;
+                                color: $white;
                             }
                             i {
-                                padding: 10px;
-                            }
-                        }
-                        h1 {
-                            padding-top: 20px;
-                            font-size: 26px;
-                            font-weight: 900;
-                        }
-                        h3 {
-                            font-weight: 300;
-                        }
-                        button {
-                            @include pink-button;
-                        }
-                    }
-                    
-                    main {
-                        width: 100%;
-                    }
-                    
-                    #functionning {
-                        padding: 30px;
-                        height: auto;
-                        margin-bottom: 30px;
-                        div {
-                            display: grid;
-                            grid-template-columns: repeat(3, 1fr);
-                            justify-items: center;
-                            @include mobile-only {
-                                grid-template-columns: 1fr;
-                            }
-                            // ajouter le mixin card en modifiant seulement la couleur et la hauteur
-                            a {
-                                background-color: $lightgrey;
-                                width: 80%;
-                                padding: 5px 15px;
-                                @include cards--border-radius;
-                                text-decoration: none;
-                                color: black;
-                                margin-top: 15px;
-                                position: relative;
-                                display: flex;
-                                justify-content: space-around;
-                                font-weight: bold;
-                                @include cards-shadow($mediumgrey);
-                                span {
-                                    padding: 5px 10px;
-                                    @include cards--border-radius;
-                                    background-color: $primaire;
-                                    position: absolute;
-                                    left: -10px;
-                                    top: 18px;
-                                    color: $white;
-                                }
-                                i {
-                                    margin-top: 12px;
-                                    font-size: 20px;
-                                    padding: 5px;
-                                    color: $darkgrey;
-                                }
-                                p {
-                                    display: inline-block;
-                                }
-                            }
-                        }
-                    }
-                    
-                    #restaurants {
-                        padding-top: 30px;
-                        padding-bottom: 30px;
-                        background-color: $lightgrey;
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-rows: 50px 1fr 1fr;
-                        @include mobile-only {
-                            grid-template-columns: 1fr;
-                            grid-template-rows: 1fr;
-                        }
-                        h2 {
-                            padding-left: 20px;
-                            grid-column: 1/3;
-                            grid-row: 1/2;
-                            @include mobile-only {
-                                grid-column: 1/2;
-                            }
-                        }
-                        .restaurants {
-                            @include cards(250px);
-                            display: grid;
-                            grid-template-columns: repeat(10, 10%);
-                            grid-template-rows: repeat(8, 12.5%);
-                            align-items: stretch;
-                            position: static;
-                            .images {
-                                width: 100%;
-                                grid-column: 1/11;
-                                grid-row: 1/7;
-                                position: relative;
-                                overflow: hidden;
-                                img {
-                                    width: 100%;
-                                    object-fit: cover;
-                                }
-                                .new {
-                                    padding: 6px 8px;
-                                    background-color: $tertiaire;
-                                    color: darken($tertiaire, 30%);
-                                    font-weight: bold;
-                                    position: absolute;
-                                    top: 0px;
-                                    right: 20px;
-                                }
-                            }
-                            .titles {
-                                background-color: $white;
+                                margin-top: 12px;
+                                font-size: 20px;
+                                padding: 5px;
                                 color: $darkgrey;
-                                grid-row: 7/10;
-                                grid-column: 1/11;
-                                display: flex;
-                                padding: 10px;
-                                justify-content: space-between;
-                                div {
-                                    padding: 0;
-                                    flex-direction: column;
-                                    h3,
-                                    p {
-                                        margin: 0;
-                                    }
+                            }
+                            p {
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+                
+                #restaurants {
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    background-color: $lightgrey;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 50px 1fr 1fr;
+                    @include mobile-only {
+                        grid-template-columns: 1fr;
+                        grid-template-rows: 1fr;
+                    }
+                    h2 {
+                        padding-left: 20px;
+                        grid-column: 1/3;
+                        grid-row: 1/2;
+                        @include mobile-only {
+                            grid-column: 1/2;
+                        }
+                    }
+                    .restaurants {
+                        @include cards(250px);
+                        display: grid;
+                        grid-template-columns: repeat(10, 10%);
+                        grid-template-rows: repeat(8, 12.5%);
+                        align-items: stretch;
+                        position: static;
+                        .images {
+                            width: 100%;
+                            grid-column: 1/11;
+                            grid-row: 1/7;
+                            position: relative;
+                            overflow: hidden;
+                            img {
+                                width: 100%;
+                                object-fit: cover;
+                            }
+                            .new {
+                                padding: 6px 8px;
+                                background-color: $tertiaire;
+                                color: darken($tertiaire, 30%);
+                                font-weight: bold;
+                                position: absolute;
+                                top: 0px;
+                                right: 20px;
+                            }
+                        }
+                        .titles {
+                            background-color: $white;
+                            color: $darkgrey;
+                            grid-row: 7/10;
+                            grid-column: 1/11;
+                            display: flex;
+                            padding: 10px;
+                            justify-content: space-between;
+                            div {
+                                padding: 0;
+                                flex-direction: column;
+                                h3,
+                                p {
+                                    margin: 0;
                                 }
-                                i {
-                                    color: black;
-                                    padding-right: 10px;
-                                    padding-top: 10px;
-                                    font-size: 20px;
-                                    opacity: 1;
-                                    &:hover {
-                                        color: $primaire;
-                                        animation-name: fade-in2;
-                                        animation-duration: 2s;
-                                        animation-delay: 1s;
-                                        //animation-timing-function: infinite;
-                                        font-weight: 900;
-                                    }
-                                    /*opacity: 0.2;
+                            }
+                            i {
+                                color: black;
+                                padding-right: 10px;
+                                padding-top: 10px;
+                                font-size: 20px;
+                                opacity: 1;
+                                &:hover {
+                                    color: $primaire;
+                                    font-weight: 900;
+                                    animation-name: fade-in1;
+                                    animation-duration: 2s;
+                                    animation-delay: 0s;
+                                    //animation-timing-function: infinite;
+                                    font-weight: 900;
+                                }
+                                /*opacity: 0.2;
                         transition-property: opacity;
                         transition-duration: 2s;
                         transition-delay: 0.5s;
                         transition-timing-function: ease-in-out;
                         transition: opacity 2s 0.5s ease-in-out;
                         opacity: 1;*/
-                                    /*animation-name: fade-in;
+                                /*animation-name: fade-in;
                         animation-duration: 2s;
                         animation-delay: 0.5s;
                         */
-                                }
                             }
                         }
                     }
-                    
-                    footer {
-                        @include footer-ohmyfood;
-                    }
-                    /* habituellement on créé un fichier dédié aux animations qu'on importe dans le code
+                }
+                
+                footer {
+                    @include footer-ohmyfood;
+                }
+                /* habituellement on créé un fichier dédié aux animations qu'on importe dans le code
         keyframe fade-in {
             0% {
                 opacity: 0.2;
