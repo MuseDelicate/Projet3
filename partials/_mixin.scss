@@ -27,7 +27,7 @@
     justify-content: center;
     padding: 15px;
     border-radius: 40px;
-    background-color: $secondaire;
+    background-color: $primaire;
     color: #FFFFFF;
     font-size: 16px;
     width: 50%;
@@ -51,7 +51,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background: linear-gradient($secondaire, $primaire);
+        background: linear-gradient($primaire, $secondaire);
         opacity: 0;
         z-index: -1;
         transition: opacity 250ms 50ms ease-in;
