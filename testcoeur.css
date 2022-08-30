@@ -1,66 +1,48 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
-@-webkit-keyframes bars {
-  0% {
-    -webkit-transform: scaleY(0.5);
-            transform: scaleY(0.5);
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-  }
-}
-@keyframes bars {
-  0% {
-    -webkit-transform: scaleY(0.5);
-            transform: scaleY(0.5);
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-  }
+.titles .heart {
+  position: relative;
 }
 
-.load {
-  width: 30vh;
-  height: 22.5vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+#empty {
+  position: absolute;
+  right: 5px;
+  font-size: 23px;
+  z-index: 999;
+  /*&:hover {
+        z-index: -999;
+    }*/
 }
 
-.load__bar {
-  background-color: #15DEA5;
+#empty:hover + #full {
   height: 100%;
-  width: 3vh;
-  -webkit-animation: bars 1000ms;
-          animation: bars 1000ms;
 }
 
-.load__bar--1 {
-  -webkit-animation-delay: 200ms;
-          animation-delay: 200ms;
+#full {
+  position: absolute;
+  right: 5px;
+  font-size: 24px;
+  height: 0%;
+  /* background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));
+  background: linear-gradient(180deg, #ff7ddc 24%, #ffb464 76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transition: all 3s;
+  transition: all 3s;
 }
 
-.load__bar--2 {
-  -webkit-animation-delay: 400ms;
-          animation-delay: 400ms;
-}
-
-.load__bar--3 {
-  -webkit-animation-delay: 600ms;
-          animation-delay: 600ms;
-}
-
-.load__bar--4 {
-  -webkit-animation-delay: 800ms;
-          animation-delay: 800ms;
-}
-
-.load__bar--5 {
-  -webkit-animation-delay: 1000ms;
-          animation-delay: 1000ms;
-}
+/*.heart .full:hover::after {
+    height: 0%;
+    z-index: 999;
+}*/
+/*.heart .full::after {
+    position: absolute;
+    right: 0px;
+    content: '\f004';
+    background: #ffffff;
+    height: 100%;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}*/
 /*# sourceMappingURL=testcoeur.css.map */

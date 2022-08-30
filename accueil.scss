@@ -1,260 +1,246 @@
-                            @import url("normalize.css");
-                            @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
-                            @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-                            @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-                            @import 'partials/variables';
-                            @import 'partials/mixin';
-                            @import 'partials/header-footer';
-                            @import 'partials/media-querys';
-                            @import 'partials/keyframes';
-                            //  @import url('animation.css');
-                            body {
-                                width: 100%;
-                                font-family: $common-font;
-                                margin: 0;
-                                padding: 0;
-                            }
-                            
-                            .section {
-                                height: 500px;
-                                line-height: 500px;
-                                background-color: $tertiaire;
-                                position: relative;
-                                .loader-circles {
-                                    border-radius: 50px;
-                                    border: 3px solid $primaire;
-                                    //animation: spin 1s linear infinite;
-                                    .loader-circles::after {
-                                        content: '';
-                                        position: absolute;
-                                        top: 5px;
-                                        left: 5px;
-                                        bottom: 5px;
-                                        right: 5px;
-                                        border-radius: 50px;
-                                        border: 3px solid $primaire;
-                                        border-top-color: #FFFFFF;
-                                        //opacity: 0.6;
-                                        //animation: spinreverse 2s linear infinite;
-                                    }
-                                }
-                            }
-                            
-                            header {
-                                @include header-ohmyfood;
-                                img {
-                                    @include logo-ohmyfood();
-                                }
-                            }
-                            
-                            form {
-                                background-color: $lightgrey;
-                                color: $darkgrey;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                                text-align: center;
-                                padding-bottom: 50px;
-                                padding-top: 20px;
-                                @include mobile-only {
-                                    padding: 0 0 20px 0;
-                                }
-                                div {
-                                    background-color: $mediumgrey;
-                                    border-radius: 20px;
-                                    padding: 5px 30px;
-                                    font-size: 20px;
-                                    @include mobile-only {
-                                        width: 100%;
-                                        border-radius: none;
-                                        padding: 0 30px;
-                                    }
-                                    input {
-                                        border: none;
-                                        color: black;
-                                        background-color: $mediumgrey;
-                                    }
-                                    i {
-                                        padding: 10px;
-                                    }
-                                }
-                                h1 {
-                                    padding-top: 20px;
-                                    font-size: 26px;
-                                    font-weight: 900;
-                                }
-                                h3 {
-                                    font-weight: 300;
-                                }
-                                .btn {
-                                    @include pink-button;
-                                }
-                            }
-                            
-                            main {
-                                width: 100%;
-                            }
-                            
-                            #functionning {
-                                padding: 30px;
-                                height: auto;
-                                margin-bottom: 30px;
-                                div {
-                                    width: 100%;
-                                    display: flex;
-                                    justify-content: space-evenly;
-                                    align-items: center;
-                                    @include mobile-only {
-                                        flex-direction: column;
-                                    }
-                                    a {
-                                        background-color: $lightgrey;
-                                        width: 25%;
-                                        padding: 5px 15px;
-                                        @include cards--border-radius;
-                                        text-decoration: none;
-                                        color: black;
-                                        margin-top: 15px;
-                                        position: relative;
-                                        display: flex;
-                                        justify-content: space-around;
-                                        font-weight: bold;
-                                        @include cards-shadow($mediumgrey);
-                                        z-index: 1;
-                                        &:hover {
-                                            &::after {
-                                                opacity: 0.2;
-                                            }
-                                        }
-                                        &::after {
-                                            border-radius: 25px;
-                                            content: "";
-                                            position: absolute;
-                                            top: 0;
-                                            right: 0;
-                                            bottom: 0;
-                                            left: 0;
-                                            background: $secondaire;
-                                            opacity: 0;
-                                            z-index: -1;
-                                            transition: opacity 250ms ease-in;
-                                        }
-                                        span {
-                                            padding: 5px 10px;
-                                            @include cards--border-radius;
-                                            background-color: $primaire;
-                                            position: absolute;
-                                            left: -10px;
-                                            top: 18px;
-                                            color: $white;
-                                        }
-                                        i {
-                                            margin-top: 12px;
-                                            font-size: 20px;
-                                            padding: 5px;
-                                            color: $darkgrey;
-                                        }
-                                        p {
-                                            display: inline-block;
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            #restaurants {
-                                padding-top: 30px;
-                                padding-bottom: 30px;
-                                background-color: $lightgrey;
-                                display: grid;
-                                grid-template-columns: 1fr 1fr;
-                                grid-template-rows: 50px 1fr 1fr;
-                                @include mobile-only {
-                                    grid-template-columns: 1fr;
-                                    grid-template-rows: 1fr;
-                                }
-                                h2 {
-                                    padding-left: 20px;
-                                    grid-column: 1/3;
-                                    grid-row: 1/2;
-                                    @include mobile-only {
-                                        grid-column: 1/2;
-                                    }
-                                }
-                                .restaurants {
-                                    @include cards(250px);
-                                    display: grid;
-                                    grid-template-columns: repeat(10, 10%);
-                                    grid-template-rows: repeat(8, 12.5%);
-                                    align-items: stretch;
-                                    position: static;
-                                    &:hover+i {
-                                        font-weight: 900;
-                                    }
-                                    .images {
-                                        width: 100%;
-                                        grid-column: 1/11;
-                                        grid-row: 1/7;
-                                        position: relative;
-                                        overflow: hidden;
-                                        img {
-                                            width: 100%;
-                                            object-fit: cover;
-                                        }
-                                        .new {
-                                            padding: 6px 8px;
-                                            background-color: $tertiaire;
-                                            color: darken($tertiaire, 30%);
-                                            font-weight: bold;
-                                            position: absolute;
-                                            top: 0px;
-                                            right: 20px;
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            .titles {
-                                background-color: $white;
-                                color: $darkgrey;
-                                grid-row: 7/10;
-                                grid-column: 1/11;
-                                display: flex;
-                                padding: 10px;
-                                justify-content: space-between;
-                                div {
-                                    padding: 0;
-                                    flex-direction: column;
-                                    h3,
-                                    p {
-                                        margin: 0;
-                                    }
-                                }
-                                .heart {
-                                    position: relative;
-                                    // EN COURS
-                                    i {
-                                        background-clip: text;
-                                        background: -webkit-linear-gradient(from($secondaire), to($primaire));
-                                        -webkit-background-clip: text;
-                                        -webkit-text-fill-color: transparent;
-                                        color: black;
-                                        font-weight: 300;
-                                        font-size: 30px;
-                                        padding-right: 10px;
-                                        padding-top: 10px;
-                                        opacity: 1;
-                                        position: absolute;
-                                        transition: font-weight 2s 0.5s ease-in-out;
-                                        &:before {
-                                            background: -webkit-linear-gradient(from($secondaire), to($primaire));
-                                            background-clip: text;
-                                            -webkit-background-clip: text;
-                                            display: initial;
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            footer {
-                                @include footer-ohmyfood;
-                            }
+@import url("normalize.css");
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'partials/variables';
+@import 'partials/mixin';
+@import 'partials/header-footer';
+@import 'partials/media-querys';
+@import 'partials/keyframes';
+@import 'testcoeur.css';
+//  @import url('animation.css');
+body {
+    width: 100%;
+    font-family: $common-font;
+    margin: 0;
+    padding: 0;
+}
+
+.section {
+    height: 500px;
+    line-height: 500px;
+    background-color: $mediumgrey;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+}
+
+.loader-circles {
+    border-radius: 50px;
+    border: 3px solid $primaire;
+    //animation: spin 1s linear infinite;
+}
+
+.loader-circles::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 50px;
+    border: 3px solid $primaire;
+    border-top-color: #FFFFFF;
+    //opacity: 0.6;
+    //animation: spinreverse 2s linear infinite;
+}
+
+header {
+    @include header-ohmyfood;
+    img {
+        @include logo-ohmyfood();
+    }
+}
+
+form {
+    background-color: $lightgrey;
+    color: $darkgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    @include mobile-only {
+        padding: 0 0 20px 0;
+    }
+    div {
+        background-color: $mediumgrey;
+        border-radius: 20px;
+        padding: 5px 30px;
+        font-size: 20px;
+        @include mobile-only {
+            width: 100%;
+            border-radius: none;
+            padding: 0 30px;
+        }
+        input {
+            border: none;
+            color: black;
+            background-color: $mediumgrey;
+        }
+        i {
+            padding: 10px;
+        }
+    }
+    h1 {
+        padding-top: 20px;
+        font-size: 26px;
+        font-weight: 900;
+    }
+    h3 {
+        font-weight: 300;
+    }
+    .btn {
+        @include pink-button;
+    }
+}
+
+main {
+    width: 100%;
+}
+
+#functionning {
+    padding: 30px;
+    height: auto;
+    margin-bottom: 30px;
+    div {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        @include mobile-only {
+            flex-direction: column;
+        }
+        a {
+            background-color: $lightgrey;
+            width: 25%;
+            padding: 5px 15px;
+            @include cards--border-radius;
+            text-decoration: none;
+            color: black;
+            margin-top: 15px;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+            font-weight: bold;
+            @include cards-shadow($mediumgrey);
+            z-index: 1;
+            &:hover {
+                &::after {
+                    opacity: 0.2;
+                }
+            }
+            &::after {
+                border-radius: 25px;
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: $secondaire;
+                opacity: 0;
+                z-index: -1;
+                transition: opacity 250ms ease-in;
+            }
+            span {
+                padding: 5px 10px;
+                @include cards--border-radius;
+                background-color: $primaire;
+                position: absolute;
+                left: -10px;
+                top: 18px;
+                color: $white;
+            }
+            i {
+                margin-top: 12px;
+                font-size: 20px;
+                padding: 5px;
+                color: $darkgrey;
+            }
+            p {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+#restaurants {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: $lightgrey;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px 1fr 1fr;
+    @include mobile-only {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    h2 {
+        padding-left: 20px;
+        grid-column: 1/3;
+        grid-row: 1/2;
+        @include mobile-only {
+            grid-column: 1/2;
+        }
+    }
+    .restaurants {
+        @include cards(250px);
+        display: grid;
+        grid-template-columns: repeat(10, 10%);
+        grid-template-rows: repeat(8, 12.5%);
+        align-items: stretch;
+        position: static;
+        &:hover+i {
+            font-weight: 900;
+        }
+        .images {
+            width: 100%;
+            grid-column: 1/11;
+            grid-row: 1/7;
+            position: relative;
+            overflow: hidden;
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+            .new {
+                padding: 6px 8px;
+                background-color: $tertiaire;
+                color: darken($tertiaire, 30%);
+                font-weight: bold;
+                position: absolute;
+                top: 0px;
+                right: 20px;
+            }
+        }
+    }
+}
+
+.titles {
+    background-color: $white;
+    color: $darkgrey;
+    grid-row: 7/10;
+    grid-column: 1/11;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    div {
+        padding: 0;
+        flex-direction: column;
+        h3,
+        p {
+            margin: 0;
+        }
+    }
+}
+
+footer {
+    @include footer-ohmyfood;
+}
