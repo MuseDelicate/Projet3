@@ -7,7 +7,6 @@ grid-template-columns: 1fr;
 height: $height;
 align-items: center;
 }*/
-@import url("animation.css");
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: scale(O);
@@ -147,6 +146,31 @@ body {
   width: 100%;
   font-family: "Roboto", "sans serif";
   margin: 0;
+  padding: 0;
+}
+
+.section {
+  height: 500px;
+  line-height: 500px;
+  background-color: #99E2D0;
+  position: relative;
+}
+
+.section .loader-circles {
+  border-radius: 50px;
+  border: 3px solid #9356DC;
+}
+
+.section .loader-circles .loader-circles::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  bottom: 5px;
+  right: 5px;
+  border-radius: 50px;
+  border: 3px solid #9356DC;
+  border-top-color: #FFFFFF;
 }
 
 header {
@@ -425,12 +449,8 @@ main {
   position: static;
 }
 
-#restaurants .restaurants:hover + .fa-regular {
-  opacity: 0;
-}
-
-#restaurants .restaurants:hover + .fa-solid {
-  opacity: 1;
+#restaurants .restaurants:hover + i {
+  font-weight: 900;
 }
 
 #restaurants .restaurants .images {
@@ -461,7 +481,7 @@ main {
   right: 20px;
 }
 
-#restaurants .restaurants .titles {
+.titles {
   background-color: #ffffff;
   color: #353535;
   -ms-grid-row: 7;
@@ -479,7 +499,7 @@ main {
           justify-content: space-between;
 }
 
-#restaurants .restaurants .titles div {
+.titles div {
   padding: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -487,36 +507,36 @@ main {
           flex-direction: column;
 }
 
-#restaurants .restaurants .titles div h3,
-#restaurants .restaurants .titles div p {
+.titles div h3,
+.titles div p {
   margin: 0;
 }
 
-#restaurants .restaurants .titles div .heart .fa-regular {
+.titles .heart {
+  position: relative;
+}
+
+.titles .heart i {
+  background-clip: text;
+  background: -webkit-linear-gradient(from(#FF79DA), to(#9356DC));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: black;
+  font-weight: 300;
   font-size: 30px;
   padding-right: 10px;
   padding-top: 10px;
   opacity: 1;
-  position: relative;
-  -webkit-transition: opacity 1s 0.5s ease-in-out;
-  transition: opacity 1s 0.5s ease-in-out;
+  position: absolute;
+  -webkit-transition: font-weight 2s 0.5s ease-in-out;
+  transition: font-weight 2s 0.5s ease-in-out;
 }
 
-#restaurants .restaurants .titles div .heart .fa-solid {
-  font-size: 50px;
-  background: -webkit-linear-gradient(#FF79DA, #9356DC);
+.titles .heart i:before {
+  background: -webkit-linear-gradient(from(#FF79DA), to(#9356DC));
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
-  opacity: 1;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-transition: opacity 1s 0.5s ease-in-out;
-  transition: opacity 1s 0.5s ease-in-out;
+  display: initial;
 }
 
 footer {

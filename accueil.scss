@@ -7,11 +7,37 @@
                             @import 'partials/header-footer';
                             @import 'partials/media-querys';
                             @import 'partials/keyframes';
-                            @import url('animation.css');
+                            //  @import url('animation.css');
                             body {
                                 width: 100%;
                                 font-family: $common-font;
                                 margin: 0;
+                                padding: 0;
+                            }
+                            
+                            .section {
+                                height: 500px;
+                                line-height: 500px;
+                                background-color: $tertiaire;
+                                position: relative;
+                                .loader-circles {
+                                    border-radius: 50px;
+                                    border: 3px solid $primaire;
+                                    //animation: spin 1s linear infinite;
+                                    .loader-circles::after {
+                                        content: '';
+                                        position: absolute;
+                                        top: 5px;
+                                        left: 5px;
+                                        bottom: 5px;
+                                        right: 5px;
+                                        border-radius: 50px;
+                                        border: 3px solid $primaire;
+                                        border-top-color: #FFFFFF;
+                                        //opacity: 0.6;
+                                        //animation: spinreverse 2s linear infinite;
+                                    }
+                                }
                             }
                             
                             header {
@@ -161,11 +187,8 @@
                                     grid-template-rows: repeat(8, 12.5%);
                                     align-items: stretch;
                                     position: static;
-                                    &:hover+.fa-regular {
-                                        opacity: 0;
-                                    }
-                                    &:hover+.fa-solid {
-                                        opacity: 1;
+                                    &:hover+i {
+                                        font-weight: 900;
                                     }
                                     .images {
                                         width: 100%;
@@ -187,47 +210,46 @@
                                             right: 20px;
                                         }
                                     }
-                                    .titles {
-                                        background-color: $white;
-                                        color: $darkgrey;
-                                        grid-row: 7/10;
-                                        grid-column: 1/11;
-                                        display: flex;
-                                        padding: 10px;
-                                        justify-content: space-between;
-                                        div {
-                                            padding: 0;
-                                            flex-direction: column;
-                                            h3,
-                                            p {
-                                                margin: 0;
-                                            }
-                                            .heart {
-                                                // EN COURS
-                                                .fa-regular {
-                                                    color: black;
-                                                    font-size: 30px;
-                                                    padding-right: 10px;
-                                                    padding-top: 10px;
-                                                    opacity: 1;
-                                                    position: relative;
-                                                    transition: opacity 1s 0.5s ease-in-out;
-                                                }
-                                                .fa-solid {
-                                                    font-size: 50px;
-                                                    background: -webkit-linear-gradient($secondaire, $primaire);
-                                                    background-clip: text;
-                                                    -webkit-background-clip: text;
-                                                    color: transparent;
-                                                    opacity: 1;
-                                                    position: absolute;
-                                                    top: 50%;
-                                                    left: 0;
-                                                    right: 0;
-                                                    bottom: 0;
-                                                    transition: opacity 1s 0.5s ease-in-out;
-                                                }
-                                            }
+                                }
+                            }
+                            
+                            .titles {
+                                background-color: $white;
+                                color: $darkgrey;
+                                grid-row: 7/10;
+                                grid-column: 1/11;
+                                display: flex;
+                                padding: 10px;
+                                justify-content: space-between;
+                                div {
+                                    padding: 0;
+                                    flex-direction: column;
+                                    h3,
+                                    p {
+                                        margin: 0;
+                                    }
+                                }
+                                .heart {
+                                    position: relative;
+                                    // EN COURS
+                                    i {
+                                        background-clip: text;
+                                        background: -webkit-linear-gradient(from($secondaire), to($primaire));
+                                        -webkit-background-clip: text;
+                                        -webkit-text-fill-color: transparent;
+                                        color: black;
+                                        font-weight: 300;
+                                        font-size: 30px;
+                                        padding-right: 10px;
+                                        padding-top: 10px;
+                                        opacity: 1;
+                                        position: absolute;
+                                        transition: font-weight 2s 0.5s ease-in-out;
+                                        &:before {
+                                            background: -webkit-linear-gradient(from($secondaire), to($primaire));
+                                            background-clip: text;
+                                            -webkit-background-clip: text;
+                                            display: initial;
                                         }
                                     }
                                 }
