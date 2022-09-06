@@ -8,7 +8,8 @@ grid-template-columns: 1fr;
 height: $height;
 align-items: center;
 }*/
-@import url("animation.css");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @-webkit-keyframes spinner {
   0% {
     -webkit-transform: scale(O);
@@ -92,9 +93,14 @@ align-items: center;
 
 @-webkit-keyframes translateY__course {
   0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px);
     opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+    opacity: 0.8;
   }
   100% {
     -webkit-transform: translateY(0);
@@ -105,9 +111,14 @@ align-items: center;
 
 @keyframes translateY__course {
   0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px);
     opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+    opacity: 0.8;
   }
   100% {
     -webkit-transform: translateY(0);
@@ -134,16 +145,11 @@ align-items: center;
   }
 }
 
-body .all {
+body {
   width: 100%;
   font-family: "Roboto", "sans serif";
   margin: 0;
-  opacity: 1;
-}
-
-body #loadingspinner {
-  font-size: 100px;
-  color: red;
+  padding: 0;
 }
 
 header {
@@ -168,7 +174,7 @@ header img {
 }
 
 form {
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
   color: #353535;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -185,7 +191,7 @@ form {
   padding-top: 20px;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   form {
     padding: 0 0 20px 0;
   }
@@ -196,9 +202,10 @@ form div {
   border-radius: 20px;
   padding: 5px 30px;
   font-size: 20px;
+  width: 65%;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   form div {
     width: 100%;
     border-radius: none;
@@ -230,12 +237,12 @@ form .btn {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 15px;
+  padding: 15px 10px 15px 10px;
   border-radius: 40px;
   background-color: #9356DC;
   color: #FFFFFF;
   font-size: 16px;
-  width: 50%;
+  width: 70%;
   margin: auto;
   border: none;
   -webkit-box-shadow: 3px 3px 1px #f0f0f0;
@@ -247,6 +254,8 @@ form .btn {
 
 form .btn:hover {
   border-radius: 30px;
+  -webkit-box-shadow: 4px 4px 3px #353535;
+          box-shadow: 4px 4px 3px #353535;
 }
 
 form .btn:hover::after {
@@ -261,8 +270,9 @@ form .btn::after {
   right: 0;
   bottom: 0;
   left: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
-  background: linear-gradient(#9356DC, #FF79DA);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  background: -webkit-linear-gradient(to bottom, #FF79DA, #9356DC);
   opacity: 0;
   z-index: -1;
   -webkit-transition: opacity 250ms 50ms ease-in;
@@ -292,7 +302,7 @@ main {
           align-items: center;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   #functionning div {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -302,10 +312,10 @@ main {
 }
 
 #functionning div a {
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
   width: 25%;
   padding: 5px 15px;
-  border-radius: 25px;
+  border-radius: 20px;
   text-decoration: none;
   color: black;
   margin-top: 15px;
@@ -316,13 +326,28 @@ main {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   font-weight: bold;
-  -webkit-box-shadow: 3px 3px 1px #eaeaea;
-          box-shadow: 3px 3px 1px #eaeaea;
+  -webkit-box-shadow: 3px 3px 5px #353535;
+          box-shadow: 3px 3px 5px #353535;
   z-index: 1;
+}
+
+@media screen and (max-width: 480px) {
+  #functionning div a {
+    width: 90%;
+  }
+}
+
+#functionning div a:hover {
+  -webkit-box-shadow: 4px 4px 3px #353535;
+          box-shadow: 4px 4px 3px #353535;
 }
 
 #functionning div a:hover::after {
   opacity: 0.2;
+}
+
+#functionning div a:hover + i {
+  color: #9356DC;
 }
 
 #functionning div a::after {
@@ -333,7 +358,7 @@ main {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #FF79DA;
+  background: #9356DC;
   opacity: 0;
   z-index: -1;
   -webkit-transition: opacity 250ms ease-in;
@@ -364,7 +389,7 @@ main {
 #restaurants {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -373,7 +398,7 @@ main {
       grid-template-rows: 50px 1fr 1fr;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   #restaurants {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -392,7 +417,7 @@ main {
   grid-row: 1/2;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   #restaurants h2 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
@@ -403,47 +428,31 @@ main {
 #restaurants .restaurants {
   width: 90%;
   margin: 5%;
-  height: 250px;
+  height: 220px;
   text-decoration: none;
   color: black;
   overflow: hidden;
-  border-radius: 25px;
-  -webkit-box-shadow: 3px 3px 1px #eaeaea;
-          box-shadow: 3px 3px 1px #eaeaea;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (10%)[10];
-      grid-template-columns: repeat(10, 10%);
-  -ms-grid-rows: (12.5%)[8];
-      grid-template-rows: repeat(8, 12.5%);
+  border-radius: 15px;
+  -webkit-box-shadow: 3px 3px 5px #353535;
+          box-shadow: 3px 3px 5px #353535;
+  /* A REVOIR */
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   position: static;
 }
 
-#restaurants .restaurants:hover + .fa-regular {
-  opacity: 0;
-}
-
-#restaurants .restaurants:hover + .fa-solid {
-  opacity: 1;
-}
-
 #restaurants .restaurants .images {
   width: 100%;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
-  grid-column: 1/11;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 6;
-  grid-row: 1/7;
   position: relative;
   overflow: hidden;
 }
 
 #restaurants .restaurants .images img {
   width: 100%;
+  -o-object-position: 0% 62%;
+     object-position: 0% 62%;
+  height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -458,7 +467,50 @@ main {
   right: 20px;
 }
 
-#restaurants .restaurants .titles {
+#empty {
+  position: absolute;
+  right: 5px;
+  font-size: 23px;
+  z-index: 999;
+  /*&:hover {
+        z-index: -999;
+    }*/
+}
+
+#empty:hover + #full {
+  height: 100%;
+}
+
+#full {
+  position: absolute;
+  right: 5px;
+  font-size: 24px;
+  height: 0%;
+  /* background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));
+  background: linear-gradient(180deg, #ff7ddc 24%, #ffb464 76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
+
+.heart .full:hover::after {
+  height: 0%;
+  z-index: 999;
+}
+
+/*.heart .full::after {
+    position: absolute;
+    right: 0px;
+    content: '\f004';
+    background: #ffffff;
+    height: 100%;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}*/
+.titles {
   background-color: #ffffff;
   color: #353535;
   -ms-grid-row: 7;
@@ -476,7 +528,7 @@ main {
           justify-content: space-between;
 }
 
-#restaurants .restaurants .titles div {
+.titles div {
   padding: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -484,33 +536,57 @@ main {
           flex-direction: column;
 }
 
-#restaurants .restaurants .titles div h3,
-#restaurants .restaurants .titles div p {
+.titles div h3,
+.titles div p {
   margin: 0;
 }
 
-#restaurants .restaurants .titles .fa-regular {
-  color: black;
-  font-size: 30px;
-  padding-right: 10px;
-  padding-top: 10px;
-  opacity: 1;
+.titles .heart {
   position: relative;
 }
 
-#restaurants .restaurants .titles .fa-solid {
-  font-size: 50px;
-  color: #99E2D0;
-  /*background: -webkit-linear-gradient(#9356DC, #FF79DA);
-                                            background-clip: text;
-                                            -webkit-background-clip: text;
-                                            color: transparent;*/
-  opacity: 1;
+#empty {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  right: 5px;
+  font-size: 23px;
+  z-index: 999;
+  /*&:hover {
+        z-index: -999;
+    }*/
+}
+
+#empty:hover + #full {
+  height: 100%;
+}
+
+#full {
+  position: absolute;
+  right: 5px;
+  font-size: 24px;
+  height: 0%;
+  /* background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));*/
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));
+  background: linear-gradient(180deg, #ff7ddc 24%, #ffb464 76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
+
+.heart .full:hover::after {
+  height: 0%;
+  z-index: 999;
+}
+
+.heart .full::after {
+  position: absolute;
+  right: 0px;
+  content: '\f004';
+  background: #ffffff;
+  height: 100%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
 }
 
 footer {
@@ -591,9 +667,14 @@ footer ul li a {
 
 @keyframes translateY__course {
   0% {
-    -webkit-transform: translateY(-50px);
-            transform: translateY(-50px);
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px);
     opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+    opacity: 0.8;
   }
   100% {
     -webkit-transform: translateY(0);
@@ -655,6 +736,9 @@ header div i {
             font-size: 20px;
         }
     }*/
+/*#titre i {
+        text-align: center;
+    }*/
 #photo {
   width: 100‰;
   position: relative;
@@ -670,7 +754,7 @@ main {
   position: absolute;
   top: 280px;
   border-radius: 20px 20px 0 0;
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
   height: auto;
   padding-bottom: 20px;
 }
@@ -697,7 +781,7 @@ main #titre i {
   font-weight: 100;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   main #titre {
     padding-bottom: 65px;
   }
@@ -728,7 +812,7 @@ main span {
   margin-right: auto;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   .courses {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -771,9 +855,9 @@ main span {
   text-decoration: none;
   color: black;
   overflow: hidden;
-  border-radius: 25px;
-  -webkit-box-shadow: 3px 3px 1px #eaeaea;
-          box-shadow: 3px 3px 1px #eaeaea;
+  border-radius: 15px;
+  -webkit-box-shadow: 3px 3px 5px #353535;
+          box-shadow: 3px 3px 5px #353535;
   -webkit-animation: translateY__course 3s both;
           animation: translateY__course 3s both;
 }
@@ -852,12 +936,12 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 15px;
+  padding: 15px 10px 15px 10px;
   border-radius: 40px;
   background-color: #9356DC;
   color: #FFFFFF;
   font-size: 16px;
-  width: 50%;
+  width: 70%;
   margin: auto;
   border: none;
   -webkit-box-shadow: 3px 3px 1px #f0f0f0;
@@ -873,6 +957,8 @@ button {
 
 button:hover {
   border-radius: 30px;
+  -webkit-box-shadow: 4px 4px 3px #353535;
+          box-shadow: 4px 4px 3px #353535;
 }
 
 button:hover::after {
@@ -887,8 +973,9 @@ button::after {
   right: 0;
   bottom: 0;
   left: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#9356DC), to(#FF79DA));
-  background: linear-gradient(#9356DC, #FF79DA);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(to bottom, #FF79DA, #9356DC);
+  background: -webkit-linear-gradient(to bottom, #FF79DA, #9356DC);
   opacity: 0;
   z-index: -1;
   -webkit-transition: opacity 250ms 50ms ease-in;
@@ -900,7 +987,7 @@ footer {
   top: 380px;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 480px) {
   footer {
     top: 1450px;
   }

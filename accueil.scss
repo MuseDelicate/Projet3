@@ -7,33 +7,33 @@
 @import 'partials/header-footer';
 @import 'partials/media-querys';
 @import 'partials/keyframes';
-@import 'testcoeur.css';
+// @import 'testcoeur.css';
 //  @import url('animation.css');
 body {
     width: 100%;
     font-family: $common-font;
     margin: 0;
     padding: 0;
-}
-
-.section {
-    height: 500px;
-    line-height: 500px;
-    background-color: $mediumgrey;
-}
-
-.loader {
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-    vertical-align: middle;
     position: relative;
 }
 
+.loader {
+    width: 100vw;
+    height: 100vw;
+    background-color: #f2f2f2;
+    z-index: 1000;
+    animation: loader-container--disappear 1s 2s both;
+}
+
 .loader-circles {
-    border-radius: 50px;
-    border: 3px solid $primaire;
-    //animation: spin 1s linear infinite;
+    width: 200px;
+    height: 200px;
+    padding: 30px;
+    border-radius: 200px;
+    text-align: center;
+    border: 6px solid transparent;
+    border-top-color: #9356DC;
+    animation: spin 1.5s 0.5s infinite;
 }
 
 .loader-circles::after {
@@ -41,13 +41,44 @@ body {
     position: absolute;
     top: 5px;
     left: 5px;
-    bottom: 5px;
     right: 5px;
-    border-radius: 50px;
-    border: 3px solid $primaire;
-    border-top-color: #FFFFFF;
-    //opacity: 0.6;
-    //animation: spinreverse 2s linear infinite;
+    bottom: 5px;
+    border-radius: 300px;
+    border: 6px solid transparent;
+    border-top-color: #FF79DA;
+    opacity: 0.8;
+    animation: spin 2s 0.5s infinite;
+}
+
+.loader-circles::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 300px;
+    border: 6px solid transparent;
+    border-top-color: #99E2D0;
+    animation: spin 0.5s 0.5s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-container--disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 header {
@@ -55,6 +86,11 @@ header {
     img {
         @include logo-ohmyfood();
     }
+}
+
+.form-nav {
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 form {
@@ -66,6 +102,7 @@ form {
     text-align: center;
     padding-bottom: 50px;
     padding-top: 20px;
+    width: 75%;
     @include mobile-only {
         padding: 0 0 20px 0;
     }
@@ -74,6 +111,7 @@ form {
         border-radius: 20px;
         padding: 5px 30px;
         font-size: 20px;
+        width: 65%;
         @include mobile-only {
             width: 100%;
             border-radius: none;
@@ -101,27 +139,26 @@ form {
     }
 }
 
-main {
-    width: 100%;
-}
-
 #functionning {
     padding: 30px;
     height: auto;
     margin-bottom: 30px;
+    //margin-top: 20px;
+    width: 25%;
+    //position: fixed;
+    background-color: $white;
     div {
         width: 100%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        @include mobile-only {
-            flex-direction: column;
-        }
+        flex-direction: column;
         a {
             background-color: $lightgrey;
-            width: 25%;
+            //width: 25%;
             padding: 5px 15px;
-            @include cards--border-radius;
+            //@include cards--border-radius;
+            border-radius: 20px;
             text-decoration: none;
             color: black;
             margin-top: 15px;
@@ -129,12 +166,21 @@ main {
             display: flex;
             justify-content: space-around;
             font-weight: bold;
-            @include cards-shadow($mediumgrey);
+            //@include cards-shadow($mediumgrey);
+            box-shadow: 3px 3px 5px $darkgrey;
             z-index: 1;
+            @include mobile-only {
+                width: 90%;
+            }
             &:hover {
+                box-shadow: 4px 4px 3px $darkgrey;
                 &::after {
                     opacity: 0.2;
                 }
+                &+i {
+                    color: $primaire;
+                }
+                // l'icône devrait devenir violotte au hover 
             }
             &::after {
                 border-radius: 25px;
@@ -144,14 +190,15 @@ main {
                 right: 0;
                 bottom: 0;
                 left: 0;
-                background: $secondaire;
+                background: $primaire;
                 opacity: 0;
                 z-index: -1;
                 transition: opacity 250ms ease-in;
             }
             span {
                 padding: 5px 10px;
-                @include cards--border-radius;
+                //@include cards--border-radius;
+                border-radius: 25px;
                 background-color: $primaire;
                 position: absolute;
                 left: -10px;
@@ -169,6 +216,10 @@ main {
             }
         }
     }
+}
+
+main {
+    width: 100%;
 }
 
 #restaurants {
@@ -191,23 +242,20 @@ main {
         }
     }
     .restaurants {
-        @include cards(250px);
-        display: grid;
-        grid-template-columns: repeat(10, 10%);
-        grid-template-rows: repeat(8, 12.5%);
+        @include cards(220px);
+        /* A REVOIR */
         align-items: stretch;
         position: static;
-        &:hover+i {
-            font-weight: 900;
-        }
         .images {
             width: 100%;
-            grid-column: 1/11;
-            grid-row: 1/7;
             position: relative;
             overflow: hidden;
             img {
                 width: 100%;
+                -o-object-position: 0% 62%;
+                object-position: 0% 62%;
+                height: 160px;
+                -o-object-fit: cover;
                 object-fit: cover;
             }
             .new {
@@ -222,6 +270,49 @@ main {
         }
     }
 }
+
+#empty {
+    position: absolute;
+    right: 5px;
+    font-size: 23px;
+    z-index: 999;
+    /*&:hover {
+        z-index: -999;
+    }*/
+}
+
+#empty:hover+#full {
+    height: 100%;
+}
+
+#full {
+    position: absolute;
+    right: 5px;
+    font-size: 24px;
+    height: 0%;
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));*/
+    background: linear-gradient(180deg, #ff7ddc 24%, #ffb464 76%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 3s;
+}
+
+.heart .full:hover::after {
+    height: 0%;
+    z-index: 999;
+}
+
+
+/*.heart .full::after {
+    position: absolute;
+    right: 0px;
+    content: '\f004';
+    background: #ffffff;
+    height: 100%;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}*/
 
 .titles {
     background-color: $white;
@@ -241,6 +332,52 @@ main {
     }
 }
 
+.titles .heart {
+    position: relative;
+}
+
+#empty {
+    position: absolute;
+    right: 5px;
+    font-size: 23px;
+    z-index: 999;
+    /*&:hover {
+        z-index: -999;
+    }*/
+}
+
+#empty:hover+#full {
+    height: 100%;
+}
+
+#full {
+    position: absolute;
+    right: 5px;
+    font-size: 24px;
+    height: 0%;
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #ff7ddc), color-stop(76%, #ffb464));*/
+    background: linear-gradient(180deg, #ff7ddc 24%, #ffb464 76%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 3s;
+}
+
+.heart .full:hover::after {
+    height: 0%;
+    z-index: 999;
+}
+
+.heart .full::after {
+    position: absolute;
+    right: 0px;
+    content: '\f004';
+    background: #ffffff;
+    height: 100%;
+    transition: all 1s;
+}
+
+// PREVOIR DE CHANGER POUR LA PROPRIETE OPACITY ?
 footer {
     @include footer-ohmyfood;
 }

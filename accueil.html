@@ -10,27 +10,37 @@
 </head>
 
 <body>
-
-    <section class="section">
-        <span class="loader-circles">
-        Chargement...
-    </span>
+    <section class="loader-title">
+        <div class="loader">
+            <div id="titleOhMyFood">
+                <span class="letter">o</span>
+                <span class="letter">h</span>
+                <span class="letter">m</span>
+                <span class="letter">y</span>
+                <span class="letter">f</span>
+                <span class="letter">o</span>
+                <span class="letter">o</span>
+                <span class="letter">d</span>
+            </div>
+            <div class="loader-circles">
+            </div>
+        </div>
     </section>
-
 
     <!--HEADER-->
     <header>
         <img src="images/logo/ohmyfood.png" alt="logo ohmyfood" />
     </header>
-    <form>
-        <div>
-            <i class="fa-solid fa-location-dot"></i><input type="text" value="Paris, Belleville">
-        </div>
-        <h1>Réservez le menu qui vous convient</h1>
-        <h3>Découvrez des restaurants d'exception, sélectionnés par nos soins.</h3>
-        <button class="btn">Explorer nos restaurants</button>
-    </form>
-    <main>
+    <div class="form-nav">
+        <form>
+            <div>
+                <i class="fa-solid fa-location-dot"></i><input type="text" value="Paris, Belleville">
+            </div>
+            <h1>Réservez le menu qui vous convient</h1>
+            <h3>Découvrez des restaurants d'exception, sélectionnés par nos soins.</h3>
+            <button class="btn">Explorer nos restaurants</button>
+        </form>
+
         <nav id="functionning">
             <h2>Fonctionnement</h2>
             <div>
@@ -39,6 +49,8 @@
                 <a href="#" class="parts"><span>3</span><i class="fa-solid fa-store"></i><p>Dégustez au restaurant</p></a>
             </div>
         </nav>
+    </div>
+    <main>
         <section id="restaurants">
             <h2>Restaurants</h2>
 
@@ -70,7 +82,10 @@
                         <h3>La note enchantée</h3>
                         <p>Charonne</p>
                     </div>
-                    <i class="fa-regular fa-heart"></i><i class="fa-solid fa-heart"></i>
+                    <div class="heart">
+                        <i class="fa-regular fa-heart empty" id="empty"></i>
+                        <i class="fa-solid fa-heart full" id="full"></i>
+                    </div>
                 </div>
             </a>
             <a href="menuPages/frenchMenu.html" class="restaurants">
@@ -82,7 +97,10 @@
                         <h3>A la française</h3>
                         <p>Cité rouge</p>
                     </div>
-                    <i class="fa-regular fa-heart"></i><i class="fa-solid fa-heart"></i>
+                    <div class="heart">
+                        <i class="fa-regular fa-heart empty" id="empty"></i>
+                        <i class="fa-solid fa-heart full" id="full"></i>
+                    </div>
                 </div>
             </a>
             <a href="menuPages/sensesDelight.html" class="restaurants">
@@ -94,7 +112,10 @@
                         <h3>Le délice des sens</h3>
                         <p>Folie-Méricourt</p>
                     </div>
-                    <i class="fa-regular fa-heart"></i><i class="fa-solid fa-heart"></i>
+                    <div class="heart">
+                        <i class="fa-regular fa-heart empty" id="empty"></i>
+                        <i class="fa-solid fa-heart full" id="full"></i>
+                    </div>
                 </div>
             </a>
 

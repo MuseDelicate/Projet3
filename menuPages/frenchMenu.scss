@@ -1,4 +1,6 @@
     @import '../accueil.scss';
+    @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     @import '../partials/keyframes';
     body {
         width: 100%;
@@ -25,6 +27,9 @@
         a {
             font-size: 20px;
         }
+    }*/
+    /*#titre i {
+        text-align: center;
     }*/
     
     #photo {
