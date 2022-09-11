@@ -13,24 +13,35 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    /*&::after {
+        content: "";
+        animation: disappear-after-loader 1s 3s ease-in-out forwards;
+    }*/
+    //animation: disappear-after-loader 1s 3s ease-in-out forwards;
 }
 
 .loader {
-    width: 100vw;
-    height: 100vw;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f2f2f2;
-    z-index: 1000;
-    animation: loader-container--disappear 1s 2s both;
+    //z-index: 3000;
+    animation: loader-container--disappear 1s 3s ease-in-out forwards;
 }
 
 .loader-circles {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     padding: 30px;
-    border-radius: 200px;
-    text-align: center;
+    border-radius: 300px;
     border: 6px solid transparent;
     border-top-color: #9356DC;
+    position: relative;
     animation: spin 1.5s 0.5s infinite;
 }
 
@@ -73,9 +84,24 @@ body {
 @keyframes loader-container--disappear {
     0% {
         opacity: 1;
+        //scale: 1;
+        z-index: 1000;
+        //visibility: visible;
     }
     100% {
         opacity: 0;
+        //scale: 0;
+        z-index: -1;
+        //visibility: hidden;
+    }
+}
+
+@keyframes disappear-after-loader {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
@@ -102,6 +128,7 @@ form {
     padding-top: 20px;
     width: 75%;
     @include mobile-only {
+        width: 100%;
         padding: 0 0 20px 0;
     }
     div {
@@ -139,21 +166,28 @@ form {
 
 #functionning {
     padding: 30px;
-    height: auto;
+    height: 100%;
     margin-bottom: 30px;
     //margin-top: 20px;
     width: 25%;
-    //position: fixed;
+    position: fixed;
+    left: 0;
+    z-index: 10;
     background-color: $white;
-    div {
+    @include mobile-only {
         width: 100%;
+        position: absolute;
+        z-index: 0;
+    }
+    div {
+        width: 90%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
         a {
             background-color: $lightgrey;
-            //width: 25%;
+            width: 90%;
             padding: 5px 15px;
             //@include cards--border-radius;
             border-radius: 20px;
@@ -166,7 +200,7 @@ form {
             font-weight: bold;
             //@include cards-shadow($mediumgrey);
             box-shadow: 3px 3px 5px $darkgrey;
-            z-index: 1;
+            //z-index: 1;
             @include mobile-only {
                 width: 90%;
             }
@@ -207,7 +241,7 @@ form {
                 margin-top: 12px;
                 font-size: 20px;
                 padding: 5px;
-                color: $darkgrey;
+                color: $primaire;
             }
             p {
                 display: inline-block;
@@ -224,10 +258,14 @@ main {
     padding-top: 30px;
     padding-bottom: 30px;
     background-color: $lightgrey;
+    width: 75%;
+    margin-left: 25%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr 1fr;
     @include mobile-only {
+        width: 100%;
+        margin-left: 0;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
     }
@@ -327,4 +365,6 @@ main {
 
 footer {
     @include footer-ohmyfood;
+    width: 70%;
+    margin-left: 30%;
 }
