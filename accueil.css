@@ -311,19 +311,22 @@ form {
           align-items: center;
   text-align: center;
   padding: 20px 0 50px 0;
-  width: 75%;
+  margin-left: 31%;
+  width: 70%;
 }
 
 @media screen and (max-width: 480px) {
   form {
     width: 100%;
     padding: 0 0 50px 0;
+    margin-left: 0;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   form {
     width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -528,8 +531,9 @@ form .btn:hover {
 #restaurants {
   padding-top: 30px;
   padding-bottom: 30px;
+  margin-left: 30%;
   background-color: #f1f1f1;
-  width: 75%;
+  width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -543,12 +547,14 @@ form .btn:hover {
 @media screen and (max-width: 480px) {
   #restaurants {
     width: 100%;
+    margin-left: 0;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   #restaurants {
     width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -701,6 +707,8 @@ form .btn:hover {
 }
 
 footer {
+  width: 65%;
+  margin-left: 30%;
   background-color: #353535;
   color: #ffffff;
   padding: 25px;
@@ -728,5 +736,19 @@ footer ul li a {
 
 footer ul li a:hover {
   text-decoration: underline;
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  footer {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 /*# sourceMappingURL=accueil.css.map */
