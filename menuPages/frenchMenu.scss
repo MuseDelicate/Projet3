@@ -12,7 +12,7 @@ header {
     div {
         display: flex;
         justify-content: center;
-        flex: 50%;
+        //flex: 50%;
         img {
             @include logo-ohmyfood();
         }
@@ -28,8 +28,6 @@ header {
 
 #photo {
     width: 100‰;
-    //height: 150px;
-    //overflow: hidden;
     position: relative;
     img {
         width: 100%;
@@ -43,7 +41,7 @@ main {
     border-radius: 30px 30px 0 0;
     background-color: $lightgrey;
     height: auto;
-    padding-bottom: 20px;
+    padding-bottom: 80px;
 }
 
 #titre {
@@ -55,22 +53,20 @@ main {
         margin-top: 0;
         width: 90%;
         display: block;
-    }
-    @include mobile-only {
-        padding-bottom: 65px;
+        font-size: 28px;
     }
     .fa-heart {
         font-size: 25px;
-        font-weight: 100;
+        font-weight: 200;
         padding-top: 10px;
     }
 }
 
 .courses {
     width: 95%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 50px 120px;
+    display: flex;
+    /*grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px 120px;*/
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -78,16 +74,16 @@ main {
         display: flex;
         flex-direction: column;
     }
-    &:hover {
+    /*&:hover {
         cursor: pointer;
-    }
+    }*/
     h2 {
-        padding: 0;
-        margin: 0 0 0 20px;
-        grid-column: 1/4;
-        grid-row: 1/2;
+        padding: 0 0 5px 0;
+        margin: 0 0 15px 20px;
+        font-size: 16px;
+        font-weight: 300;
         span {
-            border-bottom: 2px solid $tertiaire;
+            border-bottom: 3px solid $tertiaire;
         }
     }
     &__test {
@@ -104,33 +100,45 @@ main {
                 animation-delay: 0.5s * $i
             }
         }
+        &:hover h3 {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
         &:hover .description {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
         }
         &:hover .ok {
-            width: 80px;
+            width: 20%;
         }
         &:hover i {
             transform: rotate(360deg);
         }
         .titres {
-            width: 65%;
-            overflow-x: visible;
-        }
-        h3 {
-            margin: 0;
-            font-weight: 700;
-            font-size: 18px;
-        }
-        .description {
-            margin: 0;
-            padding-bottom: 10px;
-            font-weight: 200;
-            font-size: 16px;
+            width: 85%;
+            overflow-x: hidden;
+            // voire une transition ?
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            &:hover {
+                width: 65%;
+            }
+            h3 {
+                margin: 15px 0 0 0;
+                font-weight: 600;
+                font-size: 16px;
+            }
+            .description {
+                margin: 0;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                font-weight: 200;
+                font-size: 14px;
+            }
         }
         .price {
+            width: 15%;
             margin: 0;
             padding-left: 20px;
             padding-right: 10px;
@@ -152,18 +160,19 @@ main {
             }
         }
     }
-    button {
-        @include pink-button;
-        //display: flex;
-        //justify-content: center;
-    }
+}
+
+button {
+    @include pink-button;
+    display: flex;
+    justify-content: center;
 }
 
 footer {
     position: relative;
-    width: 100%;
+    width: 100vm;
     top: 380px;
     @include mobile-only {
-        top: 1450px;
+        top: 1350px;
     }
 }

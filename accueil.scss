@@ -1,4 +1,4 @@
-@import url("normalize.css");
+//@import url("normalize.css");
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -95,12 +95,11 @@ form {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding-bottom: 50px;
-    padding-top: 20px;
+    padding: 20px 0 50px 0;
     width: 75%;
     @include mobile-only {
         width: 100%;
-        padding: 0 0 20px 0;
+        padding: 0 0 50px 0;
     }
     @include tablette-only {
         width: 100%;
@@ -113,8 +112,8 @@ form {
         width: 65%;
         @include mobile-only {
             width: 100%;
-            border-radius: none;
-            padding: 0 30px;
+            border-radius: 0;
+            padding: 0;
         }
         input {
             border: none;
@@ -127,11 +126,14 @@ form {
     }
     h1 {
         padding-top: 20px;
-        font-size: 26px;
-        font-weight: 900;
+        font-size: 25px;
+        font-weight: 700;
+        width: 70%;
     }
     h3 {
         font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 25px;
     }
     .btn {
         @include pink-button;
@@ -144,20 +146,21 @@ form {
     margin-bottom: 30px;
     //margin-top: 20px;
     width: 25%;
-    //position: fixed;
+    position: fixed;
     left: 0;
-    z-index: 10;
-    //background-color: $white;
+    //z-index: 10;
+    background-color: $white;
     @include mobile-only {
         width: 100%;
-        position: absolute;
-        z-index: 0;
+        position: static;
+        //z-index: 0;
+        height: auto;
     }
     @include tablette-only {
         width: 100%;
     }
     div {
-        width: 90%;
+        width: 85%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -166,71 +169,72 @@ form {
             flex-direction: row;
             justify-content: space-around;
         }
-        a {
-            background-color: $lightgrey;
-            width: 90%;
-            padding: 5px 15px;
-            //@include cards--border-radius;
-            border-radius: 20px;
-            text-decoration: none;
-            color: black;
-            margin-top: 15px;
-            position: relative;
-            display: flex;
-            justify-content: space-around;
-            font-weight: bold;
-            //@include cards-shadow($mediumgrey);
-            box-shadow: 3px 3px 5px $darkgrey;
-            //z-index: 1;
-            @include mobile-only {
-                width: 90%;
-            }
-            @include tablette-only {
-                width: 25%;
-            }
-            &:hover {
-                box-shadow: 4px 4px 3px $darkgrey;
-                &::after {
-                    opacity: 0.2;
-                }
-                &+i {
-                    color: $primaire;
-                }
-                // l'icône devrait devenir violotte au hover 
-            }
-            &::after {
-                border-radius: 25px;
-                content: "";
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background: $primaire;
-                opacity: 0;
-                z-index: -1;
-                transition: opacity 250ms ease-in;
-            }
-            span {
-                padding: 5px 10px;
-                //@include cards--border-radius;
-                border-radius: 25px;
-                background-color: $primaire;
-                position: absolute;
-                left: -10px;
-                top: 18px;
-                color: $white;
-            }
-            i {
-                margin-top: 12px;
-                font-size: 20px;
-                padding: 5px;
-                color: $primaire;
-            }
-            p {
-                display: inline-block;
-            }
+    }
+}
+
+.parts {
+    background-color: $lightgrey;
+    //width: 70%;
+    padding: 5px 15px;
+    //@include cards--border-radius;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    margin-top: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    //@include cards-shadow($mediumgrey);
+    box-shadow: 3px 3px 5px $mediumgrey;
+    z-index: 1;
+    @include mobile-only {
+        width: 90%;
+    }
+    @include tablette-only {
+        width: 25%;
+    }
+    &:hover {
+        box-shadow: 4px 4px 3px $darkgrey;
+        &::after {
+            opacity: 0.2;
+            z-index: 2;
         }
+        &>.fa-solid {
+            color: $primaire;
+        }
+        // l'icône devrait devenir violotte au hover 
+    }
+    &::after {
+        border-radius: 25px;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $primaire;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms ease-in;
+    }
+    span {
+        padding: 5px 10px;
+        //@include cards--border-radius;
+        border-radius: 25px;
+        background-color: $primaire;
+        position: absolute;
+        left: -10px;
+        top: 18px;
+        color: $white;
+    }
+    i {
+        margin-top: 12px;
+        font-size: 20px;
+        padding: 5px;
+    }
+    p {
+        display: inline-block;
     }
 }
 
@@ -244,6 +248,9 @@ form {
     flex-direction: column;
     height: auto;
     //align-items: flex-end;
+    @include mobile-only {
+        width: 100%;
+    }
     h2 {
         padding-left: 20px;
         font-weight: 600;
@@ -261,20 +268,22 @@ form {
 .restaurants {
     width: 45%;
     border-radius: 25px;
-    margin: 5px;
+    margin: 10px;
     //@include cards(220px);
     /* A REVOIR */
-    align-items: stretch;
     //position: static;
+    text-decoration: none;
+    overflow: hidden;
+    background-color: $white;
     .images {
         width: 100%;
         position: relative;
         overflow: hidden;
         img {
             width: 100%;
-            -o-object-position: 0% 62%;
-            object-position: 0% 62%;
-            height: 160px;
+            -o-object-position: 0% 65%;
+            object-position: 0% 65%;
+            height: 165px;
             -o-object-fit: cover;
             object-fit: cover;
         }
@@ -282,11 +291,17 @@ form {
             padding: 6px 8px;
             background-color: $tertiaire;
             color: darken($tertiaire, 30%);
-            font-weight: bold;
+            font-weight: 500;
+            font-size: 15px;
             position: absolute;
             top: 0px;
             right: 20px;
         }
+    }
+    @include mobile-only {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -297,19 +312,23 @@ form {
     grid-row: 7/10;
     grid-column: 1/11;
     display: flex;
-    padding: 10px;
+    padding: 5px 10px 10px 10px;
     justify-content: space-between;
     div {
         padding: 0;
         flex-direction: column;
-        h3,
+        h3 {
+            margin: 0;
+            font-weight: 600;
+        }
         p {
             margin: 0;
+            font-weight: 300;
         }
     }
     .empty {
         position: absolute;
-        top: 10px;
+        top: 15px;
         right: 10px;
         font-size: 23px;
         opacity: 1;
@@ -324,7 +343,7 @@ form {
     }
     .full {
         position: absolute;
-        top: 10px;
+        top: 15px;
         right: 10px;
         font-size: 24px;
         height: 0%;
