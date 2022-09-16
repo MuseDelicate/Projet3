@@ -29,30 +29,39 @@ header {
 #photo {
     width: 100‰;
     position: relative;
-    height: 250px;
+    height: 500px;
     overflow: hidden;
     @include tablette-only {
         height: 400px;
     }
+    @include mobile-only {
+        height: 250px;
+    }
     img {
         width: 100%;
         object-fit: cover;
-        transform: translate(0px, -100px);
+        transform: translate(0px, -600px);
         @include tablette-only {
             transform: translate(0px, -350px);
+        }
+        @include mobile-only {
+            transform: translate(0px, -150px);
         }
     }
 }
 
 main {
     position: absolute;
-    top: 280px;
+    top: 580px;
     border-radius: 30px 30px 0 0;
     background-color: $lightgrey;
     height: auto;
     padding-bottom: 80px;
     @include tablette-only {
         top: 400px;
+    }
+    @include mobile-only {
+        top: 250px;
     }
 }
 
@@ -77,8 +86,6 @@ main {
 .courses {
     width: 95%;
     display: flex;
-    /*grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 50px 120px;*/
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -134,7 +141,6 @@ main {
         .titres {
             width: 85%;
             overflow-x: hidden;
-            // voire une transition ?
             white-space: nowrap;
             text-overflow: ellipsis;
             &:hover {
@@ -186,12 +192,13 @@ button {
 
 footer {
     position: relative;
-    width: 100vm;
-    top: 380px;
+    width: 100%;
+    margin-left: 0;
+    top: 600px;
     @include mobile-only {
-        top: 1450px;
+        top: 1400px;
     }
     @include tablette-only {
-        top: 550px;
+        top: 650px;
     }
 }

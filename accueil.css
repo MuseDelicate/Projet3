@@ -73,52 +73,6 @@ align-items: center;
   }
 }
 
-/*@keyframes spinner {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}*/
-/*@keyframes fade-in1 {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-in2 {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-in2 {
-    0% {
-        -webkit-opacity: 0;
-        -moz-opacity: 0;
-        opacity: 0;
-    }
-    50% {
-        -webkit-opacity: 0.6;
-        -moz-opacity: 0.6;
-        opacity: 0.6;
-    }
-    100% {
-        -webkit-opacity: 1;
-        -moz-opacity: 1;
-        opacity: 1;
-    }
-}*/
 @-webkit-keyframes translateY__course {
   0% {
     -webkit-transform: translateY(-70px);
@@ -136,6 +90,7 @@ align-items: center;
     opacity: 1;
   }
 }
+
 @keyframes translateY__course {
   0% {
     -webkit-transform: translateY(-70px);
@@ -154,23 +109,16 @@ align-items: center;
   }
 }
 
-/*@keyframes fade-in1 {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    80% {
-        opacity: 0.3;
-    }
-    90% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 1;
-    }
-}*/
+@font-face {
+  font-family: 'Shrikhand';
+  src: url(https://fonts.googleapis.com/css2?family=Shrikhand&display=swap);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+}
+
 body {
   width: 100%;
   font-family: "Roboto", "sans serif";
@@ -298,7 +246,7 @@ main {
 
 form {
   background-color: #f1f1f1;
-  color: #353535;
+  color: #000000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -311,7 +259,7 @@ form {
           align-items: center;
   text-align: center;
   padding: 20px 0 50px 0;
-  margin-left: 31%;
+  margin-left: 30%;
   width: 70%;
 }
 
@@ -364,7 +312,8 @@ form h1 {
 }
 
 form h3 {
-  font-weight: 300;
+  font-weight: 100;
+  font-size: 17px;
   margin-top: 0;
   margin-bottom: 25px;
 }
@@ -393,6 +342,7 @@ form .btn:hover {
   border-radius: 30px;
   -webkit-box-shadow: 4px 4px 3px #353535;
           box-shadow: 4px 4px 3px #353535;
+  background: #fface8;
 }
 
 #functionning {
@@ -460,10 +410,11 @@ form .btn:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-weight: bold;
+  font-weight: 200;
   -webkit-box-shadow: 3px 3px 5px #eaeaea;
           box-shadow: 3px 3px 5px #eaeaea;
   z-index: 1;
+  width: 90%;
 }
 
 @media screen and (max-width: 480px) {
@@ -584,7 +535,6 @@ form .btn:hover {
   width: 45%;
   border-radius: 25px;
   margin: 10px;
-  /* A REVOIR */
   text-decoration: none;
   overflow: hidden;
   background-color: #ffffff;
@@ -627,7 +577,7 @@ form .btn:hover {
 .restaurants .card-body {
   background-color: #ffffff;
   position: relative;
-  color: #353535;
+  color: #000;
   -ms-grid-row: 7;
   -ms-grid-row-span: 3;
   grid-row: 7/10;
@@ -707,7 +657,7 @@ form .btn:hover {
 }
 
 footer {
-  width: 65%;
+  width: 70%;
   margin-left: 30%;
   background-color: #353535;
   color: #ffffff;
