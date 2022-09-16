@@ -13,11 +13,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    /*&::after {
-        content: "";
-        animation: disappear-after-loader 1s 3s ease-in-out forwards;
-    }*/
-    //animation: disappear-after-loader 1s 3s ease-in-out forwards;
+    opacity: 1;
 }
 
 .loader {
@@ -30,8 +26,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #f2f2f2;
-    //z-index: 3000;
-    animation: loader-container--disappear 1s 3s ease-in-out forwards;
+    animation: loader-container--disappear 3s 0s ease-in-out both;
 }
 
 .loader-circles {
@@ -43,65 +38,30 @@ body {
     border-top-color: #9356DC;
     position: relative;
     animation: spin 1.5s 0.5s infinite;
-}
-
-.loader-circles::after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 300px;
-    border: 6px solid transparent;
-    border-top-color: #FF79DA;
-    opacity: 0.8;
-    animation: spin 2s 0.5s infinite;
-}
-
-.loader-circles::before {
-    content: '';
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 300px;
-    border: 6px solid transparent;
-    border-top-color: #99E2D0;
-    animation: spin 0.5s 0.5s infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
+    &::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 300px;
+        border: 6px solid transparent;
+        border-top-color: #FF79DA;
+        opacity: 0.8;
+        animation: spin 2s 0.5s infinite;
     }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes loader-container--disappear {
-    0% {
-        opacity: 1;
-        //transform: scale(1);
-        z-index: 1000;
-        //visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        //transform: scale(0);
-        z-index: -1;
-        //visibility: hidden;
-    }
-}
-
-@keyframes disappear-after-loader {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 300px;
+        border: 6px solid transparent;
+        border-top-color: #99E2D0;
+        animation: spin 0.5s 0.5s infinite;
     }
 }
 
@@ -112,9 +72,20 @@ header {
     }
 }
 
+main {
+    width: 100%;
+    animation: disappear-after-loader 3s 0s ease-in-out both;
+}
+
 .form-nav {
     display: flex;
     flex-direction: row-reverse;
+    @include tablette-only {
+        flex-direction: column;
+    }
+    @include mobile-only {
+        flex-direction: column;
+    }
 }
 
 form {
@@ -130,6 +101,9 @@ form {
     @include mobile-only {
         width: 100%;
         padding: 0 0 20px 0;
+    }
+    @include tablette-only {
+        width: 100%;
     }
     div {
         background-color: $mediumgrey;
@@ -170,14 +144,17 @@ form {
     margin-bottom: 30px;
     //margin-top: 20px;
     width: 25%;
-    position: fixed;
+    //position: fixed;
     left: 0;
     z-index: 10;
-    background-color: $white;
+    //background-color: $white;
     @include mobile-only {
         width: 100%;
         position: absolute;
         z-index: 0;
+    }
+    @include tablette-only {
+        width: 100%;
     }
     div {
         width: 90%;
@@ -185,6 +162,10 @@ form {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        @include tablette-only {
+            flex-direction: row;
+            justify-content: space-around;
+        }
         a {
             background-color: $lightgrey;
             width: 90%;
@@ -203,6 +184,9 @@ form {
             //z-index: 1;
             @include mobile-only {
                 width: 90%;
+            }
+            @include tablette-only {
+                width: 25%;
             }
             &:hover {
                 box-shadow: 4px 4px 3px $darkgrey;
@@ -250,64 +234,63 @@ form {
     }
 }
 
-main {
-    width: 100%;
-}
-
 #restaurants {
     padding-top: 30px;
     padding-bottom: 30px;
+    //margin-left: 30%;
     background-color: $lightgrey;
     width: 75%;
-    margin-left: 25%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 50px 1fr 1fr;
-    @include mobile-only {
-        width: 100%;
-        margin-left: 0;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-    }
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    //align-items: flex-end;
     h2 {
         padding-left: 20px;
-        grid-column: 1/3;
-        grid-row: 1/2;
-        @include mobile-only {
-            grid-column: 1/2;
-        }
+        font-weight: 600;
     }
-    .restaurants {
-        @include cards(220px);
-        /* A REVOIR */
-        align-items: stretch;
-        //position: static;
-        .images {
+    .restaurants-names {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        width: 100%;
+        //align-items: flex-end;
+    }
+}
+
+.restaurants {
+    width: 45%;
+    border-radius: 25px;
+    margin: 5px;
+    //@include cards(220px);
+    /* A REVOIR */
+    align-items: stretch;
+    //position: static;
+    .images {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        img {
             width: 100%;
-            position: relative;
-            overflow: hidden;
-            img {
-                width: 100%;
-                -o-object-position: 0% 62%;
-                object-position: 0% 62%;
-                height: 160px;
-                -o-object-fit: cover;
-                object-fit: cover;
-            }
-            .new {
-                padding: 6px 8px;
-                background-color: $tertiaire;
-                color: darken($tertiaire, 30%);
-                font-weight: bold;
-                position: absolute;
-                top: 0px;
-                right: 20px;
-            }
+            -o-object-position: 0% 62%;
+            object-position: 0% 62%;
+            height: 160px;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+        .new {
+            padding: 6px 8px;
+            background-color: $tertiaire;
+            color: darken($tertiaire, 30%);
+            font-weight: bold;
+            position: absolute;
+            top: 0px;
+            right: 20px;
         }
     }
 }
 
-.restaurants .titles {
+.restaurants .card-body {
     background-color: $white;
     position: relative;
     color: $darkgrey;
@@ -365,6 +348,4 @@ main {
 
 footer {
     @include footer-ohmyfood;
-    width: 70%;
-    margin-left: 30%;
 }

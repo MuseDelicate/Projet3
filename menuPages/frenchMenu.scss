@@ -2,39 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import '../partials/keyframes';
+@import '../partials/mixin';
 body {
     width: 100%;
 }
 
-header div {
-    display: flex;
-    justify-content: center;
-    flex: 50%;
-    img {
-        width: 20%;
-    }
-    i {
-        margin-top: 20px;
-        font-size: 30px;
-    }
-}
-
-
-/*header {
-        @include header-ohmyfood;
-        align-items: center;
+header {
+    @include header-ohmyfood;
+    div {
+        display: flex;
+        justify-content: center;
+        flex: 50%;
         img {
-            width: 250px;
+            @include logo-ohmyfood();
         }
         a {
-            font-size: 20px;
+            color: #000000;
+            .fa-arrow-left {
+                margin-top: 10px;
+                font-size: 30px;
+            }
         }
-    }*/
-
-
-/*#titre i {
-        text-align: center;
-    }*/
+    }
+}
 
 #photo {
     width: 100‰;
@@ -42,7 +32,6 @@ header div {
     //overflow: hidden;
     position: relative;
     img {
-        //height: auto;
         width: 100%;
         object-fit: cover;
     }
@@ -51,81 +40,31 @@ header div {
 main {
     position: absolute;
     top: 280px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 30px 30px 0 0;
     background-color: $lightgrey;
     height: auto;
     padding-bottom: 20px;
-    #titre {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-        h1 {
-            font-family: $title-font;
-            margin-top: 0;
-            width: 90%;
-            display: block;
-        }
-        @include mobile-only {
-            padding-bottom: 65px;
-        }
-        .heart {
-            i {
-                font-size: 25px;
-                font-weight: 100;
-            }
-            .empty {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 23px;
-                opacity: 1;
-                z-index: 999;
-                transition: all 1s;
-                &:hover {
-                    opacity: 0;
-                }
-                &:hover+.full {
-                    height: 100%;
-                }
-            }
-            .full {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 24px;
-                height: 0%;
-                background: linear-gradient(180deg, $secondaire 24%, $primaire 76%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                transition: all 2s ease-in-out;
-                opacity: 1;
-                height: 0%;
-                &::after {
-                    content: "";
-                    position: absolute;
-                    right: 0px;
-                    top: 0px;
-                    background: #fff;
-                    height: 100%;
-                }
-            }
-        }
-    }
-    span {
-        border-bottom: 2px solid $tertiaire;
-    }
 }
 
-
-/*.test {
-        width: 100px;
-        height: 20px;
-        overflow: hidden;
-        //word-wrap: initial;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }*/
+#titre {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    h1 {
+        font-family: $title-font;
+        margin-top: 0;
+        width: 90%;
+        display: block;
+    }
+    @include mobile-only {
+        padding-bottom: 65px;
+    }
+    .fa-heart {
+        font-size: 25px;
+        font-weight: 100;
+        padding-top: 10px;
+    }
+}
 
 .courses {
     width: 95%;
@@ -139,11 +78,17 @@ main {
         display: flex;
         flex-direction: column;
     }
+    &:hover {
+        cursor: pointer;
+    }
     h2 {
         padding: 0;
         margin: 0 0 0 20px;
         grid-column: 1/4;
         grid-row: 1/2;
+        span {
+            border-bottom: 2px solid $tertiaire;
+        }
     }
     &__test {
         display: flex;
@@ -165,27 +110,33 @@ main {
             text-overflow: ellipsis;
         }
         &:hover .ok {
-            width: 30%;
+            width: 80px;
         }
         &:hover i {
             transform: rotate(360deg);
         }
         .titres {
-            width: 60%;
+            width: 65%;
+            overflow-x: visible;
         }
         h3 {
             margin: 0;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 18px;
         }
         .description {
             margin: 0;
             padding-bottom: 10px;
             font-weight: 200;
+            font-size: 16px;
         }
         .price {
             margin: 0;
-            padding-left: 15px;
+            padding-left: 20px;
             padding-right: 10px;
+            padding-top: 30px;
+            font-weight: 600;
+            font-size: 16px;
         }
         .ok {
             background-color: $tertiaire;
@@ -194,23 +145,23 @@ main {
             height: 100%;
             width: 0%;
             text-align: center;
-            padding-top: 50px;
+            padding-top: 55px;
             transition: width 0.2s 0.2s linear;
             i {
                 transition: transform 1s 0.2s ease-in-out;
             }
         }
     }
-}
-
-button {
-    @include pink-button;
-    display: flex;
-    justify-content: center;
+    button {
+        @include pink-button;
+        //display: flex;
+        //justify-content: center;
+    }
 }
 
 footer {
     position: relative;
+    width: 100%;
     top: 380px;
     @include mobile-only {
         top: 1450px;
