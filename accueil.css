@@ -377,7 +377,7 @@ form .btn {
   background: -webkit-linear-gradient(to bottom, #FF79DA, #9356DC);
   color: #FFFFFF;
   font-size: 16px;
-  width: 70%;
+  width: 60%;
   margin: auto;
   border: none;
   -webkit-box-shadow: 3px 3px 1px #eaeaea;
@@ -404,7 +404,7 @@ form .btn:hover {
 
 @media screen and (max-width: 480px) {
   #functionning {
-    width: 100%;
+    width: 85%;
     position: static;
     height: auto;
   }
@@ -412,12 +412,13 @@ form .btn:hover {
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   #functionning {
-    width: 100%;
+    width: 93%;
+    position: static;
   }
 }
 
 #functionning div {
-  width: 85%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -435,10 +436,6 @@ form .btn:hover {
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   #functionning div {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
@@ -457,6 +454,9 @@ form .btn:hover {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: bold;
   -webkit-box-shadow: 3px 3px 5px #eaeaea;
           box-shadow: 3px 3px 5px #eaeaea;
@@ -471,7 +471,7 @@ form .btn:hover {
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   .parts {
-    width: 25%;
+    width: 90%;
   }
 }
 
@@ -522,6 +522,7 @@ form .btn:hover {
 
 .parts p {
   display: inline-block;
+  margin: 0;
 }
 
 #restaurants {
@@ -545,6 +546,12 @@ form .btn:hover {
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  #restaurants {
+    width: 100%;
+  }
+}
+
 #restaurants h2 {
   padding-left: 20px;
   font-weight: 600;
@@ -562,6 +569,9 @@ form .btn:hover {
       flex-wrap: wrap;
   margin-bottom: 20px;
   width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .restaurants {
@@ -714,5 +724,9 @@ footer ul li {
 footer ul li a {
   color: white;
   text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
 }
 /*# sourceMappingURL=accueil.css.map */

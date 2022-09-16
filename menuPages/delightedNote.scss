@@ -1,4 +1,8 @@
 @import '../accueil.scss';
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '../partials/keyframes';
+@import '../partials/mixin';
 body {
     width: 100%;
 }
@@ -8,7 +12,7 @@ header {
     div {
         display: flex;
         justify-content: center;
-        //flex: 50%;
+        flex: 50%;
         img {
             @include logo-ohmyfood();
         }
@@ -27,11 +31,16 @@ header {
     position: relative;
     height: 250px;
     overflow: hidden;
-    background-color: blue;
+    @include tablette-only {
+        height: 400px;
+    }
     img {
         width: 100%;
         object-fit: cover;
         transform: translate(0px, -100px);
+        @include tablette-only {
+            transform: translate(0px, -350px);
+        }
     }
 }
 
@@ -42,6 +51,9 @@ main {
     background-color: $lightgrey;
     height: auto;
     padding-bottom: 80px;
+    @include tablette-only {
+        top: 400px;
+    }
 }
 
 #titre {
@@ -74,14 +86,15 @@ main {
         display: flex;
         flex-direction: column;
     }
-    /*&:hover {
-        cursor: pointer;
-    }*/
+    @include tablette-only {
+        flex-wrap: wrap;
+    }
     h2 {
         padding: 0 0 5px 0;
         margin: 0 0 15px 20px;
         font-size: 16px;
         font-weight: 300;
+        width: 80px;
         span {
             border-bottom: 3px solid $tertiaire;
         }
@@ -99,6 +112,9 @@ main {
             &--#{$i} {
                 animation-delay: 0.5s * $i
             }
+        }
+        @include tablette-only {
+            width: 25%;
         }
         &:hover h3 {
             white-space: nowrap;
@@ -174,5 +190,8 @@ footer {
     top: 380px;
     @include mobile-only {
         top: 1450px;
+    }
+    @include tablette-only {
+        top: 550px;
     }
 }

@@ -12,7 +12,7 @@ header {
     div {
         display: flex;
         justify-content: center;
-        //flex: 50%;
+        flex: 50%;
         img {
             @include logo-ohmyfood();
         }
@@ -29,9 +29,17 @@ header {
 #photo {
     width: 100‰;
     position: relative;
+    height: 250px;
+    overflow: hidden;
+    @include tablette-only {
+        height: 400px;
+    }
     img {
         width: 100%;
         object-fit: cover;
+        @include tablette-only {
+            transform: translate(0px -200px);
+        }
     }
 }
 
@@ -42,6 +50,9 @@ main {
     background-color: $lightgrey;
     height: auto;
     padding-bottom: 80px;
+    @include tablette-only {
+        top: 400px;
+    }
 }
 
 #titre {
@@ -74,14 +85,12 @@ main {
         display: flex;
         flex-direction: column;
     }
-    /*&:hover {
-        cursor: pointer;
-    }*/
     h2 {
         padding: 0 0 5px 0;
         margin: 0 0 15px 20px;
         font-size: 16px;
         font-weight: 300;
+        width: 80px;
         span {
             border-bottom: 3px solid $tertiaire;
         }
@@ -174,5 +183,8 @@ footer {
     top: 380px;
     @include mobile-only {
         top: 1350px;
+    }
+    @include tablette-only {
+        top: 580px;
     }
 }

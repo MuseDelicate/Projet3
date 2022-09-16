@@ -151,22 +151,22 @@ form {
     //z-index: 10;
     background-color: $white;
     @include mobile-only {
-        width: 100%;
+        width: 85%;
         position: static;
         //z-index: 0;
         height: auto;
     }
     @include tablette-only {
-        width: 100%;
+        width: 93%;
+        position: static;
     }
     div {
-        width: 85%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         @include tablette-only {
-            flex-direction: row;
             justify-content: space-around;
         }
     }
@@ -184,6 +184,7 @@ form {
     position: relative;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     font-weight: bold;
     //@include cards-shadow($mediumgrey);
     box-shadow: 3px 3px 5px $mediumgrey;
@@ -192,7 +193,7 @@ form {
         width: 90%;
     }
     @include tablette-only {
-        width: 25%;
+        width: 90%;
     }
     &:hover {
         box-shadow: 4px 4px 3px $darkgrey;
@@ -235,6 +236,7 @@ form {
     }
     p {
         display: inline-block;
+        margin: 0;
     }
 }
 
@@ -251,6 +253,9 @@ form {
     @include mobile-only {
         width: 100%;
     }
+    @include tablette-only {
+        width: 100%;
+    }
     h2 {
         padding-left: 20px;
         font-weight: 600;
@@ -261,7 +266,7 @@ form {
         flex-wrap: wrap;
         margin-bottom: 20px;
         width: 100%;
-        //align-items: flex-end;
+        justify-content: center;
     }
 }
 

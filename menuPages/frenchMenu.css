@@ -407,7 +407,7 @@ form .btn:hover {
 
 @media screen and (max-width: 480px) {
   #functionning {
-    width: 100%;
+    width: 85%;
     position: static;
     height: auto;
   }
@@ -415,12 +415,13 @@ form .btn:hover {
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   #functionning {
-    width: 100%;
+    width: 93%;
+    position: static;
   }
 }
 
 #functionning div {
-  width: 85%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -438,10 +439,6 @@ form .btn:hover {
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   #functionning div {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
@@ -460,6 +457,9 @@ form .btn:hover {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: bold;
   -webkit-box-shadow: 3px 3px 5px #eaeaea;
           box-shadow: 3px 3px 5px #eaeaea;
@@ -474,7 +474,7 @@ form .btn:hover {
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
   .parts {
-    width: 25%;
+    width: 90%;
   }
 }
 
@@ -525,6 +525,7 @@ form .btn:hover {
 
 .parts p {
   display: inline-block;
+  margin: 0;
 }
 
 #restaurants {
@@ -548,6 +549,12 @@ form .btn:hover {
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  #restaurants {
+    width: 100%;
+  }
+}
+
 #restaurants h2 {
   padding-left: 20px;
   font-weight: 600;
@@ -565,6 +572,9 @@ form .btn:hover {
       flex-wrap: wrap;
   margin-bottom: 20px;
   width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .restaurants {
@@ -719,6 +729,10 @@ footer ul li a {
   text-decoration: none;
 }
 
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
 @keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -860,6 +874,9 @@ header div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
 }
 
 header div img {
@@ -880,12 +897,27 @@ header div a .fa-arrow-left {
 #photo {
   width: 100‰;
   position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  #photo {
+    height: 400px;
+  }
 }
 
 #photo img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  #photo img {
+    -webkit-transform: translate(0px -200px);
+            transform: translate(0px -200px);
+  }
 }
 
 main {
@@ -895,6 +927,12 @@ main {
   background-color: #f1f1f1;
   height: auto;
   padding-bottom: 80px;
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  main {
+    top: 400px;
+  }
 }
 
 #titre {
@@ -931,9 +969,6 @@ main {
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-  /*&:hover {
-        cursor: pointer;
-    }*/
 }
 
 @media screen and (max-width: 480px) {
@@ -953,6 +988,7 @@ main {
   margin: 0 0 15px 20px;
   font-size: 16px;
   font-weight: 300;
+  width: 80px;
 }
 
 .courses h2 span {
@@ -1114,6 +1150,12 @@ footer {
 @media screen and (max-width: 480px) {
   footer {
     top: 1350px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  footer {
+    top: 580px;
   }
 }
 /*# sourceMappingURL=frenchMenu.css.map */
