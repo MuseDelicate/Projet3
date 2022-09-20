@@ -1,5 +1,4 @@
 @mixin header-ohmyfood {
-    @include cards-shadow (0 5px 5px grey);
     padding: 15px;
     display: flex;
     flex: 50%;

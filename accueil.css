@@ -1,11 +1,6 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-/*@mixin mobile-only--cards-width ($height) {
-grid-template-columns: 1fr;
-height: $height;
-align-items: center;
-}*/
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -16,6 +11,7 @@ align-items: center;
             transform: rotate(360deg);
   }
 }
+
 @keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -143,7 +139,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #f2f2f2;
+  background-color: #f1f1f1;
   -webkit-animation: loader-container--disappear 3s 0s ease-in-out both;
           animation: loader-container--disappear 3s 0s ease-in-out both;
 }
@@ -190,8 +186,6 @@ body {
 }
 
 header {
-  -webkit-box-shadow: 3px 3px 1px #eaeaea;
-          box-shadow: 3px 3px 1px #eaeaea;
   padding: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -296,7 +290,7 @@ form div {
 
 form div input {
   border: none;
-  color: black;
+  color: #000000;
   background-color: #eaeaea;
 }
 
@@ -326,8 +320,8 @@ form .btn {
   border-radius: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(to bottom, #FF79DA, #9356DC);
-  background: -webkit-linear-gradient(to bottom, #FF79DA, #9356DC);
-  color: #FFFFFF;
+  background: -moz-linear-gradient(to bottom, #FF79DA, #9356DC);
+  color: #ffffff;
   font-size: 16px;
   width: 60%;
   margin: auto;
@@ -346,10 +340,10 @@ form .btn:hover {
 }
 
 #functionning {
-  padding: 30px;
+  padding: 0 30px 30px 30px;
   height: 100%;
   margin-bottom: 30px;
-  width: 25%;
+  width: 24%;
   position: fixed;
   left: 0;
   background-color: #ffffff;
@@ -360,6 +354,7 @@ form .btn:hover {
     width: 85%;
     position: static;
     height: auto;
+    padding: 30px;
   }
 }
 
@@ -399,7 +394,7 @@ form .btn:hover {
   padding: 5px 15px;
   border-radius: 20px;
   text-decoration: none;
-  color: black;
+  color: #000000;
   margin-top: 15px;
   position: relative;
   display: -webkit-box;
@@ -464,7 +459,7 @@ form .btn:hover {
   background-color: #9356DC;
   position: absolute;
   left: -10px;
-  top: 18px;
+  top: 14px;
   color: #ffffff;
 }
 
@@ -540,6 +535,11 @@ form .btn:hover {
   background-color: #ffffff;
 }
 
+.restaurants:hover {
+  -webkit-box-shadow: 5px 5px 3px #353535;
+          box-shadow: 5px 5px 3px #353535;
+}
+
 .restaurants .images {
   width: 100%;
   position: relative;
@@ -577,7 +577,7 @@ form .btn:hover {
 .restaurants .card-body {
   background-color: #ffffff;
   position: relative;
-  color: #000;
+  color: #000000;
   -ms-grid-row: 7;
   -ms-grid-row-span: 3;
   grid-row: 7/10;
@@ -641,6 +641,8 @@ form .btn:hover {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
   -webkit-transition: all 2s ease-in-out;
   transition: all 2s ease-in-out;
   opacity: 1;
