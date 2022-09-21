@@ -60,7 +60,7 @@ main {
         top: 400px;
     }
     @include mobile-only {
-        top: 280px;
+        top: 250px;
     }
 }
 
@@ -190,7 +190,7 @@ footer {
     margin-left: 0;
     @include footer-ohmyfood;
     @include mobile-only {
-        top: 1350px;
+        top: 1320px;
     }
     @include tablette-only {
         top: 580px;

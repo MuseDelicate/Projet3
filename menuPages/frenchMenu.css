@@ -910,7 +910,7 @@ main {
 
 @media screen and (max-width: 480px) {
   main {
-    top: 280px;
+    top: 250px;
   }
 }
 
@@ -1155,7 +1155,7 @@ footer ul li a:hover {
 
 @media screen and (max-width: 480px) {
   footer {
-    top: 1350px;
+    top: 1320px;
   }
 }
 
