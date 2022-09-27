@@ -1,4 +1,4 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css);
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
@@ -118,7 +118,7 @@
 }
 
 body {
-  width: 100%;
+  width: 100vm;
   font-family: "Roboto", "sans serif";
   margin: 0;
   padding: 0;
@@ -216,28 +216,11 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-}
-
-@media screen and (min-width: 481px) and (max-width: 900px) {
-  .form-nav {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .form-nav {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
 }
 
 form {
@@ -255,22 +238,14 @@ form {
           align-items: center;
   text-align: center;
   padding: 20px 0 50px 0;
-  margin-left: 30%;
-  width: 70%;
+  margin-left: 0;
+  width: 100%;
 }
 
 @media screen and (max-width: 480px) {
   form {
     width: 100%;
     padding: 0 0 50px 0;
-    margin-left: 0;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 900px) {
-  form {
-    width: 100%;
-    margin-left: 0;
   }
 }
 
@@ -279,7 +254,7 @@ form div {
   border-radius: 20px;
   padding: 5px 30px;
   font-size: 20px;
-  width: 65%;
+  width: 60%;
 }
 
 @media screen and (max-width: 480px) {
@@ -307,7 +282,7 @@ form h1 {
   width: 70%;
 }
 
-form h3 {
+form p {
   font-weight: 100;
   font-size: 17px;
   margin-top: 0;
@@ -342,50 +317,31 @@ form .btn:hover {
 }
 
 #functionning {
-  padding: 0 30px 30px 30px;
+  padding: 30px;
   height: 100%;
   margin-bottom: 30px;
-  width: 24%;
-  position: fixed;
-  left: 0;
+  width: 100vm;
   background-color: #ffffff;
+  /*@include mobile-only {
+        width: 85%;
+        position: static;
+        height: auto;
+        padding: 30px;
+    }
+    @include tablette-only {
+        width: 93%;
+        position: static;
+    }*/
 }
 
-@media screen and (max-width: 480px) {
-  #functionning {
-    width: 85%;
-    position: static;
-    height: auto;
-    padding: 30px;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 900px) {
-  #functionning {
-    width: 93%;
-    position: static;
-  }
-}
-
-#functionning div {
+#functionning ul {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
-  #functionning div {
+  #functionning ul {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
@@ -412,6 +368,8 @@ form .btn:hover {
           box-shadow: 3px 3px 5px #eaeaea;
   z-index: 1;
   width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 480px) {
@@ -461,14 +419,13 @@ form .btn:hover {
   background-color: #9356DC;
   position: absolute;
   left: -10px;
-  top: 14px;
+  top: 12px;
   color: #ffffff;
 }
 
 .parts i {
-  margin-top: 12px;
   font-size: 20px;
-  padding: 5px;
+  padding: 10px 5px 5px 5px;
 }
 
 .parts p {
@@ -479,9 +436,9 @@ form .btn:hover {
 #restaurants {
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-left: 30%;
+  margin-left: 0;
   background-color: #f1f1f1;
-  width: 70%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -490,20 +447,6 @@ form .btn:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   height: auto;
-}
-
-@media screen and (max-width: 480px) {
-  #restaurants {
-    width: 100%;
-    margin-left: 0;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 900px) {
-  #restaurants {
-    width: 100%;
-    margin-left: 0;
-  }
 }
 
 #restaurants h2 {
@@ -532,9 +475,15 @@ form .btn:hover {
   width: 45%;
   border-radius: 25px;
   margin: 10px;
-  text-decoration: none;
   overflow: hidden;
   background-color: #ffffff;
+  position: relative;
+}
+
+@media screen and (max-width: 480px) {
+  .restaurants {
+    width: 90%;
+  }
 }
 
 .restaurants:hover {
@@ -542,13 +491,18 @@ form .btn:hover {
           box-shadow: 5px 5px 3px #353535;
 }
 
-.restaurants .images {
+.restaurants a {
+  text-decoration: none;
+  background-color: blue;
+}
+
+.restaurants a .images {
   width: 100%;
   position: relative;
   overflow: hidden;
 }
 
-.restaurants .images img {
+.restaurants a .images img {
   width: 100%;
   -o-object-position: 0% 65%;
   object-position: 0% 65%;
@@ -557,7 +511,7 @@ form .btn:hover {
   object-fit: cover;
 }
 
-.restaurants .images .new {
+.restaurants a .images .new {
   padding: 6px 8px;
   background-color: #99E2D0;
   color: #32b091;
@@ -569,7 +523,7 @@ form .btn:hover {
 }
 
 @media screen and (max-width: 480px) {
-  .restaurants {
+  .restaurants a {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -580,63 +534,58 @@ form .btn:hover {
   background-color: #ffffff;
   position: relative;
   color: #000000;
-  -ms-grid-row: 7;
-  -ms-grid-row-span: 3;
-  grid-row: 7/10;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
-  grid-column: 1/11;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 5px 10px 10px 10px;
+  padding: 15px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.restaurants .card-body div {
-  padding: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.restaurants .card-body div h3 {
+.restaurants .card-body h3 {
   margin: 0;
+  padding-bottom: 5px;
   font-weight: 600;
 }
 
-.restaurants .card-body div p {
+.restaurants .card-body p {
   margin: 0;
   font-weight: 300;
 }
 
-.restaurants .card-body .empty {
-  position: absolute;
-  top: 15px;
+.heart {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.heart .empty {
+  top: 185px;
   right: 10px;
-  font-size: 23px;
+  position: absolute;
   opacity: 1;
   z-index: 999;
   -webkit-transition: all 1s;
   transition: all 1s;
+  font-weight: 200;
 }
 
-.restaurants .card-body .empty:hover {
+.heart .empty:hover {
   opacity: 0;
 }
 
-.restaurants .card-body .empty:hover + .full {
+.heart .empty:hover + .full {
   height: 100%;
 }
 
-.restaurants .card-body .full {
-  position: absolute;
-  top: 15px;
+.heart .full {
+  top: 185px;
   right: 10px;
-  font-size: 24px;
+  position: absolute;
   height: 0%;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #FF79DA), color-stop(76%, #9356DC));
   background: linear-gradient(180deg, #FF79DA 24%, #9356DC 76%);
@@ -651,7 +600,7 @@ form .btn:hover {
   height: 0%;
 }
 
-.restaurants .card-body .full::after {
+.heart .full::after {
   content: "";
   position: absolute;
   right: 0px;
@@ -661,8 +610,8 @@ form .btn:hover {
 }
 
 footer {
-  width: 70%;
-  margin-left: 30%;
+  width: 100vm;
+  margin: 0;
   background-color: #353535;
   color: #ffffff;
   padding: 25px;
@@ -677,33 +626,22 @@ footer h2 {
 footer ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 footer ul li {
+  width: 100%;
   padding: 5px;
 }
 
 footer ul li a {
+  width: 100%;
   color: white;
   text-decoration: none;
 }
 
 footer ul li a:hover {
   text-decoration: underline;
-}
-
-@media screen and (min-width: 481px) and (max-width: 900px) {
-  footer {
-    margin-left: 0;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  footer {
-    width: 100%;
-    margin-left: 0;
-  }
 }
 
 @-webkit-keyframes spin {
@@ -922,6 +860,7 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 20px;
+  position: relative;
 }
 
 #titre h1 {
@@ -932,32 +871,66 @@ main {
   font-size: 28px;
 }
 
-#titre .fa-heart {
+#titre .heart {
   font-size: 25px;
+  cursor: pointer;
+}
+
+#titre .heart .empty {
+  top: 20px;
+  right: 20px;
+  position: absolute;
+  opacity: 1;
+  z-index: 999;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   font-weight: 200;
-  padding-top: 10px;
+}
+
+#titre .heart .empty:hover {
+  opacity: 0;
+}
+
+#titre .heart .empty:hover + .full {
+  height: 100%;
+}
+
+#titre .heart .full {
+  top: 20px;
+  right: 20px;
+  position: absolute;
+  height: 0%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(24%, #FF79DA), color-stop(76%, #9356DC));
+  background: linear-gradient(180deg, #FF79DA 24%, #9356DC 76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  opacity: 1;
+  height: 0%;
+}
+
+#titre .heart .full::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background: #fff;
+  height: 100%;
 }
 
 .courses {
   width: 95%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-}
-
-@media screen and (max-width: 480px) {
-  .courses {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+  /*@include mobile-only {
+        display: flex;
+        flex-direction: column;
+    }*/
 }
 
 .courses h2 {
@@ -965,11 +938,24 @@ main {
   margin: 0 0 15px 20px;
   font-size: 16px;
   font-weight: 300;
-  width: 80px;
+  width: 100%;
 }
 
 .courses h2 span {
   border-bottom: 3px solid #99E2D0;
+}
+
+.courses .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style-type: none;
 }
 
 .courses__test {
@@ -986,7 +972,7 @@ main {
       flex-wrap: nowrap;
   padding-left: 10px;
   background-color: #ffffff;
-  width: 90%;
+  width: 30%;
   margin: 10px;
   height: 80px;
   text-decoration: none;
@@ -1121,7 +1107,6 @@ button:hover {
 
 footer {
   position: relative;
-  width: 100%;
   top: 620px;
   margin-left: 0;
   background-color: #353535;
@@ -1138,13 +1123,16 @@ footer h2 {
 footer ul {
   list-style-type: none;
   padding: 0;
+  width: 100%;
 }
 
 footer ul li {
+  width: 100%;
   padding: 5px;
 }
 
 footer ul li a {
+  width: 100%;
   color: white;
   text-decoration: none;
 }

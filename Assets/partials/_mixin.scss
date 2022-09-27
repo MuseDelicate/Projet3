@@ -1,0 +1,113 @@
+@mixin mobile-only {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin tablette-only {
+    @media screen and (min-width: 481px) and (max-width: 900px) {
+        @content;
+    }
+}
+
+@mixin cards ($height) {}
+
+@mixin logo-ohmyfood {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin pink-button {
+    justify-content: center;
+    padding: 15px 10px 15px 10px;
+    border-radius: 40px;
+    background: linear-gradient(to bottom, $secondaire, $primaire);
+    background: -webkit-linear-gradient(to bottom, $secondaire, $primaire);
+    background: -moz-linear-gradient(to bottom, $secondaire, $primaire);
+    color: $white;
+    font-size: 16px;
+    width: 60%;
+    margin: auto;
+    border: none;
+    box-shadow: 3px 3px 1px $mediumgrey;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        border-radius: 30px;
+        box-shadow: 4px 4px 3px $darkgrey;
+        background: lighten($secondaire, 10%);
+    }
+}
+
+@mixin transition-heart-filling--empty {
+    position: absolute;
+    opacity: 1;
+    z-index: 999;
+    transition: all 1s;
+    font-weight: 200;
+    &:hover {
+        opacity: 0;
+    }
+    &:hover+.full {
+        height: 100%;
+    }
+}
+
+@mixin transition-heart-filling--full {
+    position: absolute;
+    height: 0%;
+    background: linear-gradient(180deg, $secondaire 24%, $primaire 76%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    transition: all 2s ease-in-out;
+    opacity: 1;
+    height: 0%;
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background: #fff;
+        height: 100%;
+    }
+}
+
+@mixin header-ohmyfood {
+    padding: 15px;
+    display: flex;
+    flex: 50%;
+    justify-content: start;
+}
+
+@mixin footer-ohmyfood {
+    background-color: $darkgrey;
+    color: $white;
+    padding: 25px;
+    width: 100vm;
+    h2 {
+        font-family: $title-font;
+        margin: 0;
+        padding-bottom: 15px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        li {
+            width: 100%;
+            padding: 5px;
+            a {
+                width: 100%;
+                color: white;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

@@ -1,10 +1,8 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css);
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import 'partials/variables';
 @import 'partials/mixin';
-@import 'partials/header-footer';
-@import 'partials/media-querys';
 @import 'partials/keyframes';
 @font-face {
     font-family: 'Shrikhand';
@@ -17,7 +15,7 @@
 }
 
 body {
-    width: 100%;
+    width: 100vm;
     font-family: $common-font;
     margin: 0;
     padding: 0;
@@ -88,13 +86,8 @@ main {
 
 .form-nav {
     display: flex;
-    flex-direction: row-reverse;
-    @include tablette-only {
-        flex-direction: column;
-    }
-    @include mobile-only {
-        flex-direction: column;
-    }
+    flex-direction: column;
+    width: 100%;
 }
 
 form {
@@ -105,23 +98,23 @@ form {
     align-items: center;
     text-align: center;
     padding: 20px 0 50px 0;
-    margin-left: 30%;
-    width: 70%;
+    margin-left: 0;
+    width: 100%;
     @include mobile-only {
         width: 100%;
         padding: 0 0 50px 0;
-        margin-left: 0;
+        //margin-left: 0;
     }
-    @include tablette-only {
-        width: 100%;
-        margin-left: 0;
-    }
+    //@include tablette-only {
+    //width: 100%;
+    //margin-left: 0;
+    //}
     div {
         background-color: $mediumgrey;
         border-radius: 20px;
         padding: 5px 30px;
         font-size: 20px;
-        width: 65%;
+        width: 60%;
         @include mobile-only {
             width: 100%;
             border-radius: 0;
@@ -142,7 +135,7 @@ form {
         font-weight: 700;
         width: 70%;
     }
-    h3 {
+    p {
         font-weight: 100;
         font-size: 17px;
         margin-top: 0;
@@ -154,14 +147,13 @@ form {
 }
 
 #functionning {
-    padding: 0 30px 30px 30px;
+    padding: 30px;
     height: 100%;
     margin-bottom: 30px;
-    width: 24%;
-    position: fixed;
-    left: 0;
+    width: 100vm;
+    //left: 0;
     background-color: $white;
-    @include mobile-only {
+    /*@include mobile-only {
         width: 85%;
         position: static;
         height: auto;
@@ -170,13 +162,15 @@ form {
     @include tablette-only {
         width: 93%;
         position: static;
-    }
-    div {
+    }*/
+    ul {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
+        //flex-direction: column;
+        margin: 0;
+        padding: 0;
         @include tablette-only {
             justify-content: space-around;
         }
@@ -198,6 +192,8 @@ form {
     box-shadow: 3px 3px 5px $mediumgrey;
     z-index: 1;
     width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     @include mobile-only {
         width: 90%;
     }
@@ -233,13 +229,13 @@ form {
         background-color: $primaire;
         position: absolute;
         left: -10px;
-        top: 14px;
+        top: 12px;
         color: $white;
     }
     i {
-        margin-top: 12px;
+        //margin-top: 12px;
         font-size: 20px;
-        padding: 5px;
+        padding: 10px 5px 5px 5px;
     }
     p {
         display: inline-block;
@@ -250,20 +246,12 @@ form {
 #restaurants {
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-left: 30%;
+    margin-left: 0;
     background-color: $lightgrey;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     height: auto;
-    @include mobile-only {
-        width: 100%;
-        margin-left: 0;
-    }
-    @include tablette-only {
-        width: 100%;
-        margin-left: 0;
-    }
     h2 {
         padding-left: 20px;
         font-weight: 600;
@@ -282,39 +270,46 @@ form {
     width: 45%;
     border-radius: 25px;
     margin: 10px;
-    text-decoration: none;
     overflow: hidden;
     background-color: $white;
+    position: relative;
+    @include mobile-only {
+        width: 90%;
+    }
     &:hover {
         box-shadow: 5px 5px 3px $darkgrey;
     }
-    .images {
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-        img {
+    a {
+        text-decoration: none;
+        background-color: blue;
+        .images {
             width: 100%;
-            -o-object-position: 0% 65%;
-            object-position: 0% 65%;
-            height: 165px;
-            -o-object-fit: cover;
-            object-fit: cover;
+            position: relative;
+            overflow: hidden;
+            img {
+                width: 100%;
+                -o-object-position: 0% 65%;
+                object-position: 0% 65%;
+                height: 165px;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+            .new {
+                padding: 6px 8px;
+                background-color: $tertiaire;
+                color: darken($tertiaire, 30%);
+                font-weight: 500;
+                font-size: 15px;
+                position: absolute;
+                top: 0px;
+                right: 20px;
+            }
         }
-        .new {
-            padding: 6px 8px;
-            background-color: $tertiaire;
-            color: darken($tertiaire, 30%);
-            font-weight: 500;
-            font-size: 15px;
-            position: absolute;
-            top: 0px;
-            right: 20px;
+        @include mobile-only {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
-    }
-    @include mobile-only {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 
@@ -322,74 +317,38 @@ form {
     background-color: $white;
     position: relative;
     color: $black;
-    grid-row: 7/10;
-    grid-column: 1/11;
     display: flex;
-    padding: 5px 10px 10px 10px;
+    //padding: 5px 10px 10px 10px;
+    padding: 15px;
     justify-content: space-between;
-    div {
-        padding: 0;
-        flex-direction: column;
-        h3 {
-            margin: 0;
-            font-weight: 600;
-        }
-        p {
-            margin: 0;
-            font-weight: 300;
-        }
+    flex-direction: column;
+    h3 {
+        margin: 0;
+        padding-bottom: 5px;
+        font-weight: 600;
     }
+    p {
+        margin: 0;
+        font-weight: 300;
+    }
+}
+
+.heart {
+    font-size: 25px;
+    cursor: pointer;
     .empty {
-        position: absolute;
-        top: 15px;
+        top: 185px;
         right: 10px;
-        font-size: 23px;
-        opacity: 1;
-        z-index: 999;
-        transition: all 1s;
-        &:hover {
-            opacity: 0;
-        }
-        &:hover+.full {
-            height: 100%;
-        }
+        @include transition-heart-filling--empty;
     }
     .full {
-        position: absolute;
-        top: 15px;
+        top: 185px;
         right: 10px;
-        font-size: 24px;
-        height: 0%;
-        background: linear-gradient(180deg, $secondaire 24%, $primaire 76%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-background-clip: text;
-        -moz-text-fill-color: transparent;
-        transition: all 2s ease-in-out;
-        opacity: 1;
-        height: 0%;
-        &::after {
-            content: "";
-            position: absolute;
-            right: 0px;
-            top: 0px;
-            background: #fff;
-            height: 100%;
-        }
+        @include transition-heart-filling--full;
     }
 }
 
 footer {
-    width: 70%;
-    margin-left: 30%;
+    margin: 0;
     @include footer-ohmyfood;
-    @include tablette-only {
-        margin-left: 0;
-        width: 100%;
-    }
-    @include mobile-only {
-        width: 100%;
-        margin-left: 0;
-    }
 }

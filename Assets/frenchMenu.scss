@@ -1,8 +1,8 @@
-@import '../accueil.scss';
+@import 'accueil.scss';
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import '../partials/keyframes';
-@import '../partials/mixin';
+@import 'partials/keyframes';
+@import 'partials/mixin';
 body {
     width: 100%;
 }
@@ -68,6 +68,7 @@ main {
     display: flex;
     justify-content: center;
     padding: 20px;
+    position: relative;
     h1 {
         font-family: $title-font;
         margin-top: 0;
@@ -75,32 +76,48 @@ main {
         display: block;
         font-size: 28px;
     }
-    .fa-heart {
+    .heart {
         font-size: 25px;
-        font-weight: 200;
-        padding-top: 10px;
+        cursor: pointer;
+        .empty {
+            top: 20px;
+            right: 20px;
+            @include transition-heart-filling--empty;
+        }
+        .full {
+            top: 20px;
+            right: 20px;
+            @include transition-heart-filling--full;
+        }
     }
 }
 
 .courses {
     width: 95%;
-    display: flex;
+    //display: flex;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
-    @include mobile-only {
+    /*@include mobile-only {
         display: flex;
         flex-direction: column;
-    }
+    }*/
     h2 {
         padding: 0 0 5px 0;
         margin: 0 0 15px 20px;
         font-size: 16px;
         font-weight: 300;
-        width: 80px;
+        width: 100%;
         span {
             border-bottom: 3px solid $tertiaire;
         }
+    }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        list-style-type: none;
+        //padding: 0;
     }
     &__test {
         display: flex;
@@ -109,7 +126,14 @@ main {
         flex-wrap: nowrap;
         padding-left: 10px;
         background-color: $white;
-        @include cards(80px);
+        width: 30%;
+        margin: 10px;
+        height: 80px;
+        text-decoration: none;
+        color: black;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 3px 3px 5px $darkgrey;
         animation: translateY__course 3s both;
         @for $i from 1 through 3 {
             &--#{$i} {
@@ -185,7 +209,6 @@ button {
 
 footer {
     position: relative;
-    width: 100%;
     top: 620px;
     margin-left: 0;
     @include footer-ohmyfood;
