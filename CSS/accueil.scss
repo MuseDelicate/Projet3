@@ -12,7 +12,7 @@
 @import './partials/mixin';
 @import './partials/keyframes';
 body {
-    width: 100vm;
+    width: 100%;
     font-family: $common-font;
     margin: 0;
     padding: 0;
@@ -142,25 +142,9 @@ form {
     padding: 30px;
     height: 100%;
     margin-bottom: 30px;
-    width: 100vm;
-    //left: 0;
     background-color: $white;
-    /*@include mobile-only {
-        width: 85%;
-        position: static;
-        height: auto;
-        padding: 30px;
-    }
-    @include tablette-only {
-        width: 93%;
-        position: static;
-    }*/
     ul {
         width: 100%;
-        //display: flex;
-        //justify-content: center;
-        //align-items: center;
-        //flex-direction: column;
         margin: 0;
         padding: 0;
         @include tablette-only {
@@ -310,7 +294,6 @@ form {
     position: relative;
     color: $black;
     display: flex;
-    //padding: 5px 10px 10px 10px;
     padding: 15px;
     justify-content: space-between;
     flex-direction: column;

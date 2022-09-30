@@ -113,7 +113,7 @@
 }
 
 body {
-  width: 100vm;
+  width: 100%;
   font-family: "Roboto", "sans serif";
   margin: 0;
   padding: 0;
@@ -315,18 +315,7 @@ form .btn:hover {
   padding: 30px;
   height: 100%;
   margin-bottom: 30px;
-  width: 100vm;
   background-color: #ffffff;
-  /*@include mobile-only {
-        width: 85%;
-        position: static;
-        height: auto;
-        padding: 30px;
-    }
-    @include tablette-only {
-        width: 93%;
-        position: static;
-    }*/
 }
 
 #functionning ul {
@@ -609,7 +598,6 @@ footer {
   background-color: #353535;
   color: #ffffff;
   padding: 25px;
-  width: 100vm;
 }
 
 footer h2 {
