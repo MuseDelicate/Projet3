@@ -1,19 +1,16 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css);
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import 'partials/variables';
-@import 'partials/mixin';
-@import 'partials/keyframes';
-@font-face {
-    font-family: 'Shrikhand';
-    src: url(https://fonts.googleapis.com/css2?family=Shrikhand&display=swap);
-}
-
 @font-face {
     font-family: 'Roboto';
-    src: url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+    src: url('./Polices-icônes/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Shrikhand';
+    src: url('./Polices-icônes/Shrikhand/Shrikhand-Regular.ttf') format('truetype');
+}
+
+@import './partials/variables';
+@import './partials/mixin';
+@import './partials/keyframes';
 body {
     width: 100vm;
     font-family: $common-font;

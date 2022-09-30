@@ -1,0 +1,346 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('./fonts&icons/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Shrikhand';
+    src: url('./fonts&icons/Shrikhand/Shrikhand-Regular.ttf') format('truetype');
+}
+
+@import './partials/variables';
+@import './partials/mixin';
+@import './partials/keyframes';
+body {
+    width: 100vm;
+    font-family: $common-font;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    opacity: 1;
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $lightgrey;
+    animation: loader-container--disappear 3s 0s ease-in-out both;
+}
+
+.loader-circles {
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    border-radius: 300px;
+    border: 6px solid transparent;
+    border-top-color: $primaire;
+    position: relative;
+    animation: spin 1.5s 0.5s infinite;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 300px;
+        border: 6px solid transparent;
+        border-top-color: $secondaire;
+        opacity: 0.8;
+        animation: spin 2s 0.5s infinite;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 300px;
+        border: 6px solid transparent;
+        border-top-color: $tertiaire;
+        animation: spin 0.5s 0.5s infinite;
+    }
+}
+
+header {
+    @include header-ohmyfood;
+    img {
+        @include logo-ohmyfood();
+    }
+}
+
+main {
+    width: 100%;
+    animation: disappear-after-loader 3s 0s ease-in-out both;
+}
+
+.form-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form {
+    background-color: $lightgrey;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0 50px 0;
+    margin-left: 0;
+    width: 100%;
+    @include mobile-only {
+        width: 100%;
+        padding: 0 0 50px 0;
+    }
+    div {
+        background-color: $mediumgrey;
+        border-radius: 20px;
+        padding: 5px 30px;
+        font-size: 20px;
+        width: 60%;
+        @include mobile-only {
+            width: 100%;
+            border-radius: 0;
+            padding: 0;
+        }
+        input {
+            border: none;
+            color: $black;
+            background-color: $mediumgrey;
+        }
+        i {
+            padding: 10px;
+        }
+    }
+    h1 {
+        padding-top: 20px;
+        font-size: 25px;
+        font-weight: 700;
+        width: 70%;
+    }
+    p {
+        font-weight: 100;
+        font-size: 17px;
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+    .btn {
+        @include pink-button;
+    }
+}
+
+#functionning {
+    padding: 30px;
+    height: 100%;
+    margin-bottom: 30px;
+    width: 100vm;
+    //left: 0;
+    background-color: $white;
+    /*@include mobile-only {
+        width: 85%;
+        position: static;
+        height: auto;
+        padding: 30px;
+    }
+    @include tablette-only {
+        width: 93%;
+        position: static;
+    }*/
+    ul {
+        width: 100%;
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
+        //flex-direction: column;
+        margin: 0;
+        padding: 0;
+        @include tablette-only {
+            justify-content: space-around;
+        }
+    }
+}
+
+.parts {
+    background-color: $lightgrey;
+    padding: 5px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: $black;
+    margin-top: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 200;
+    box-shadow: 3px 3px 5px $mediumgrey;
+    z-index: 1;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    @include mobile-only {
+        width: 90%;
+    }
+    @include tablette-only {
+        width: 90%;
+    }
+    &:hover {
+        box-shadow: 4px 4px 3px $darkgrey;
+        &::after {
+            opacity: 0.2;
+            z-index: 2;
+        }
+        &>.fa-solid {
+            color: $primaire;
+        }
+    }
+    &::after {
+        border-radius: 25px;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $primaire;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms ease-in;
+    }
+    span {
+        padding: 5px 10px;
+        border-radius: 25px;
+        background-color: $primaire;
+        position: absolute;
+        left: -10px;
+        top: 12px;
+        color: $white;
+    }
+    i {
+        //margin-top: 12px;
+        font-size: 20px;
+        padding: 10px 5px 5px 5px;
+    }
+    p {
+        display: inline-block;
+        margin: 0;
+    }
+}
+
+#restaurants {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 0;
+    background-color: $lightgrey;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    h2 {
+        padding-left: 20px;
+        font-weight: 600;
+    }
+    .restaurants-names {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.restaurants {
+    width: 45%;
+    border-radius: 25px;
+    margin: 10px;
+    overflow: hidden;
+    background-color: $white;
+    position: relative;
+    @include mobile-only {
+        width: 90%;
+    }
+    &:hover {
+        box-shadow: 5px 5px 3px $darkgrey;
+    }
+    a {
+        text-decoration: none;
+        background-color: blue;
+        .images {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            img {
+                width: 100%;
+                -o-object-position: 0% 65%;
+                object-position: 0% 65%;
+                height: 165px;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+            .new {
+                padding: 6px 8px;
+                background-color: $tertiaire;
+                color: darken($tertiaire, 30%);
+                font-weight: 500;
+                font-size: 15px;
+                position: absolute;
+                top: 0px;
+                right: 20px;
+            }
+        }
+        @include mobile-only {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+.restaurants .card-body {
+    background-color: $white;
+    position: relative;
+    color: $black;
+    display: flex;
+    //padding: 5px 10px 10px 10px;
+    padding: 15px;
+    justify-content: space-between;
+    flex-direction: column;
+    h3 {
+        margin: 0;
+        padding-bottom: 5px;
+        font-weight: 600;
+    }
+    p {
+        margin: 0;
+        font-weight: 300;
+    }
+}
+
+.heart {
+    font-size: 25px;
+    cursor: pointer;
+    .empty {
+        top: 185px;
+        right: 10px;
+        @include transition-heart-filling--empty;
+    }
+    .full {
+        top: 185px;
+        right: 10px;
+        @include transition-heart-filling--full;
+    }
+}
+
+footer {
+    margin: 0;
+    @include footer-ohmyfood;
+}

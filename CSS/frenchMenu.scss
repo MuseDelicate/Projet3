@@ -1,0 +1,224 @@
+@import './accueil.scss';
+@import './partials/keyframes';
+@import './partials/mixin';
+body {
+    width: 100%;
+}
+
+header {
+    @include header-ohmyfood;
+    div {
+        display: flex;
+        justify-content: center;
+        flex: 50%;
+        img {
+            @include logo-ohmyfood();
+        }
+        a {
+            color: $black;
+            .fa-arrow-left {
+                margin-top: 10px;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+#photo {
+    width: 100%;
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    @include tablette-only {
+        height: 400px;
+    }
+    @include mobile-only {
+        height: 250px;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+        @include tablette-only {
+            transform: translate(0, -200px);
+        }
+        @include mobile-only {
+            transform: translate(0, -50px);
+        }
+    }
+}
+
+main {
+    position: absolute;
+    top: 550px;
+    border-radius: 30px 30px 0 0;
+    background-color: $lightgrey;
+    height: auto;
+    padding-bottom: 80px;
+    @include tablette-only {
+        top: 400px;
+    }
+    @include mobile-only {
+        top: 230px;
+        padding-bottom: 140px;
+    }
+}
+
+#titre {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    position: relative;
+    h1 {
+        font-family: $title-font;
+        margin-top: 0;
+        width: 90%;
+        display: block;
+        font-size: 28px;
+    }
+    .heart {
+        font-size: 25px;
+        cursor: pointer;
+        .empty {
+            top: 20px;
+            right: 20px;
+            @include transition-heart-filling--empty;
+        }
+        .full {
+            top: 20px;
+            right: 20px;
+            @include transition-heart-filling--full;
+        }
+    }
+}
+
+.courses {
+    width: 95%;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    h2 {
+        padding: 0 0 5px 0;
+        margin: 0 0 15px 15px;
+        font-size: 16px;
+        font-weight: 300;
+        width: 100%;
+        span {
+            border-bottom: 3px solid $tertiaire;
+        }
+    }
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        list-style-type: none;
+        @include mobile-only {
+            flex-direction: column;
+            padding-left: 0;
+        }
+    }
+    &__test {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding-left: 10px;
+        background-color: $white;
+        width: 30%;
+        margin: 10px;
+        height: 80px;
+        text-decoration: none;
+        color: black;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 3px 3px 5px $darkgrey;
+        animation: translateY__course 3s both;
+        @for $i from 1 through 3 {
+            &--#{$i} {
+                animation-delay: 0.5s * $i
+            }
+        }
+        @include mobile-only {
+            width: 90%;
+        }
+        @include tablette-only {
+            width: 45%;
+        }
+        &:hover h3 {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        &:hover .description {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        &:hover .ok {
+            width: 20%;
+        }
+        &:hover i {
+            transform: rotate(360deg);
+        }
+        .titres {
+            width: 85%;
+            overflow-x: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            &:hover {
+                width: 65%;
+            }
+            h3 {
+                margin: 15px 0 0 0;
+                font-weight: 600;
+                font-size: 16px;
+            }
+            .description {
+                margin: 0;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                font-weight: 200;
+                font-size: 14px;
+            }
+        }
+        .price {
+            width: 15%;
+            margin: 0;
+            padding-left: 20px;
+            padding-right: 10px;
+            padding-top: 30px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .ok {
+            background-color: $tertiaire;
+            font-size: 20px;
+            color: $white;
+            height: 100%;
+            width: 0%;
+            text-align: center;
+            padding-top: 55px;
+            transition: width 0.2s 0.2s linear;
+            i {
+                transition: transform 1s 0.2s ease-in-out;
+            }
+        }
+    }
+}
+
+button {
+    @include pink-button;
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    position: relative;
+    top: 700px;
+    margin-left: 0;
+    @include footer-ohmyfood;
+    @include mobile-only {
+        top: 1370px;
+    }
+    @include tablette-only {
+        top: 1000px;
+    }
+}

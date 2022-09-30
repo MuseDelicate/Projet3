@@ -1,8 +1,6 @@
-@import 'accueil.scss';
-@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import 'partials/keyframes';
-@import 'partials/mixin';
+@import './accueil.scss';
+@import 'partials/variables';
+@import './partials/mixin';
 body {
     width: 100%;
 }
@@ -61,12 +59,13 @@ main {
     }
     @include mobile-only {
         top: 250px;
+        padding-bottom: 140px;
     }
 }
 
 #titre {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 20px;
     position: relative;
     h1 {
@@ -94,17 +93,12 @@ main {
 
 .courses {
     width: 95%;
-    //display: flex;
     margin-bottom: 50px;
     margin-left: auto;
     margin-right: auto;
-    /*@include mobile-only {
-        display: flex;
-        flex-direction: column;
-    }*/
     h2 {
         padding: 0 0 5px 0;
-        margin: 0 0 15px 20px;
+        margin: 0 0 15px 15px;
         font-size: 16px;
         font-weight: 300;
         width: 100%;
@@ -117,7 +111,10 @@ main {
         flex-wrap: wrap;
         flex-direction: row;
         list-style-type: none;
-        //padding: 0;
+        @include mobile-only {
+            flex-direction: column;
+            padding-left: 0;
+        }
     }
     &__test {
         display: flex;
@@ -139,6 +136,12 @@ main {
             &--#{$i} {
                 animation-delay: 0.5s * $i
             }
+        }
+        @include mobile-only {
+            width: 90%;
+        }
+        @include tablette-only {
+            width: 45%;
         }
         &:hover h3 {
             white-space: nowrap;
@@ -213,9 +216,9 @@ footer {
     margin-left: 0;
     @include footer-ohmyfood;
     @include mobile-only {
-        top: 1320px;
+        top: 1380px;
     }
     @include tablette-only {
-        top: 580px;
+        top: 1000px;
     }
 }
