@@ -148,24 +148,9 @@ form {
     height: 100%;
     margin-bottom: 30px;
     width: 100vm;
-    //left: 0;
     background-color: $white;
-    /*@include mobile-only {
-        width: 85%;
-        position: static;
-        height: auto;
-        padding: 30px;
-    }
-    @include tablette-only {
-        width: 93%;
-        position: static;
-    }*/
     ul {
         width: 100%;
-        //display: flex;
-        //justify-content: center;
-        //align-items: center;
-        //flex-direction: column;
         margin: 0;
         padding: 0;
         @include tablette-only {
@@ -230,7 +215,6 @@ form {
         color: $white;
     }
     i {
-        //margin-top: 12px;
         font-size: 20px;
         padding: 10px 5px 5px 5px;
     }
@@ -270,6 +254,7 @@ form {
     overflow: hidden;
     background-color: $white;
     position: relative;
+    box-shadow: 2px 2px 10px $mediumgrey;
     @include mobile-only {
         width: 90%;
     }
@@ -315,7 +300,6 @@ form {
     position: relative;
     color: $black;
     display: flex;
-    //padding: 5px 10px 10px 10px;
     padding: 15px;
     justify-content: space-between;
     flex-direction: column;

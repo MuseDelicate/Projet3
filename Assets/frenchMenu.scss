@@ -1,5 +1,5 @@
 @import './accueil.scss';
-@import 'partials/variables';
+@import './partials/variables';
 @import './partials/mixin';
 body {
     width: 100%;
@@ -130,12 +130,15 @@ main {
         color: black;
         overflow: hidden;
         border-radius: 15px;
-        box-shadow: 3px 3px 5px $darkgrey;
+        box-shadow: 2px 2px 10px $mediumgrey;
         animation: translateY__course 3s both;
         @for $i from 1 through 3 {
             &--#{$i} {
                 animation-delay: 0.5s * $i
             }
+        }
+        &:hover {
+            box-shadow: 5px 5px 3px $darkgrey;
         }
         @include mobile-only {
             width: 90%;
